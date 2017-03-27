@@ -1,0 +1,112 @@
+{
+    "data_source_details": {
+	"name": "Twitter Users",
+	"description": "Twitter profiles of users.",
+	"input_params": {"username": "String"}
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "TwitterUser"
+    },
+    "id_details": {
+	"id_field": "id",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": ["username", "description"],
+	"most_recent_timestamp": "created_at"
+    },
+    "fields": {
+	"id": {
+	    "display_type": "Tiny Text",
+	    "icon": "",
+	    "human_readable": "ID"
+	},
+	"profile_image_url_https": {
+	    "display_type": "Picture",
+	    "icon": "",
+	    "human_readable": "Profile Pic"
+	},
+	"follower_of": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Follower Of"
+	},
+	"is_followed_by": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Followed By"
+	},
+	"name": {
+	    "display_type": "Tiny Text",
+	    "icon": "",
+	    "human_readable": "Display Name"
+	},
+	"username": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Username"
+	},
+	"location": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Location"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"url": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "URL"
+	},
+	"followers_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Followers Count"
+	},
+	"friends_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Following Count"
+	},
+	"listed_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "List Count"
+	},
+	"created_at": {
+	    "display_type": "DateTime",
+	    "icon": "",
+	    "human_readable": "Date Created"
+	},
+	"favorites_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Favorites Count"
+	},
+	"statuses_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Tweet Count"
+	},
+	"lang": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Language"
+	},
+	"verified": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Verified"
+	},
+	"time_zone": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Timezone"
+	}
+    }
+}
