@@ -3,10 +3,14 @@ require "rails_helper"
 RSpec.describe Project do
   describe "project gen" do
     let(:project_config) {"dataspec_files/projects/tweetpeople.json"}
-    let(:project) {Project.new(project_config)}
+    let(:project) do
+      Project.new(project_file: project_config)
+   #   p.parse_config(project_config)
+    #  p
+    end
     
     it "should create a new project" do
-      expect(project.instance_variable_get(:@project_config)).to be_a(Hash)
+      expect(project.project_config).to be_a(Hash)
     end
 
     it "should load display details" do
@@ -20,7 +24,7 @@ RSpec.describe Project do
 
     it "should load the index name" do
       project.load_index_name
-      expect(project.instance_variable_get(:@index_name)).to eq("tweet_people")
+      expect(project.index_name).to eq("tweet_people")
     end
 
     it "should generate the datasources" do

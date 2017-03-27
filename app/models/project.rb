@@ -1,11 +1,18 @@
 class Project
-  def initialize(file)
-    @project_config = JSON.parse(File.read(file))
+  include Mongoid::Document
+  field :project_file, type: String
+  field :project_config, type: Hash
+  field :index_name, type: String
+  
+  # Load in the config file
+  def self.parse_config
+    self.project_config = JSON.parse(File.read(self.project_file))
   end
+  parse_config
 
   # Load the index name
   def load_index_name
-    @index_name = @project_config["index_name"]
+    index_name = project_config["index_name"]
   end
 
   # Load in all the datasources
