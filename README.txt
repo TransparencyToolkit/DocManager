@@ -9,6 +9,7 @@ queries all in one place.
 * elasticsearch 5.2.2
 * ruby 2.4.1
 * rails 5.0.2
+* mongodb
 
 ## Setup Instructions
 
@@ -23,8 +24,11 @@ queries all in one place.
 2. Run
 
 * Start elasticsearch (exact method depends on installation method)
+* Create a directory for the mongodb database
+* mongod --dbpath dirname/
 * rails server
 
-3. To Run Tests
+3. Testing and Similar
 
-* bundle exec rspec
+* Run Tests: bundle exec rspec
+* Look at DB: mongo doc_manager_development

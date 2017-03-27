@@ -1,40 +1,33 @@
 class Datasource
-  def initialize(file)
-    @source_config = JSON.parse(File.read(file))
-  end
+  include SetFields
+  include Mongoid::Document
+  field :source_config, type: Hash
 
-  # Generates the fields for the data source
-  def gen_fields
-    @fields = @source_config["fields"]
-  end
+  # datasource_details
+  field :name, type: String
+  field :description, type: String
+  field :input_params, type: Hash
 
-  # Loads the basic details about the source
-  def load_datasource_details
-    source_details = @source_config["data_source_details"]
-    @source_name = source_details["name"]
-    @description = source_details["description"]
-    @input_params = source_details["input_params"]
-  end
+  # index_details
+  field :mapping, type: String
+  field :class_name, type: String
 
-  # Load the details needed to index the data
-  def load_index_details
-    source_details = @source_config["index_details"]
-    @mapping = source_details["mapping"]
-    @class_name = source_details["class_name"]
-  end
+  # id_details
+  field :id_field, type: String
+  field :secondary_id, type: Array
+  field :trim_from_id, type: Array
 
-  # Load in info on the ID field
-  def load_id_details
-    source_details = @source_config["id_details"]
-    @id_field = source_details["id_field"]
-    @secondary_id = source_details["secondary_id"]
-    @trim_from_id = source_details["trim_from_id"]
-  end
+  # version_tracking_details
+  field :fields_to_track, type: Array
+  field :most_recent_timestamp, type: String
 
-  # Load in the details related to version tracking
-  def load_version_tracking_details
-    source_details = @source_config["version_tracking_details"]
-    @fields_to_track = source_details["fields_to_track"]
-    @most_recent_timestamp = source_details["most_recent_timestamp"]
+  # Load in the config file
+  def parse_config(file)
+    self.source_config = JSON.parse(File.read(file))
+    load_fields(source_config["data_source_details"])
+    load_fields(source_config["index_details"])
+    load_fields(source_config["id_details"])
+    load_fields(source_config["version_tracking_details"])
+    self.fields = source_config["fields"]
   end
 end

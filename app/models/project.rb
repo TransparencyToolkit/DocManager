@@ -1,49 +1,34 @@
 class Project
+  include SetFields
   include Mongoid::Document
+  # Config/settings
   field :project_file, type: String
   field :project_config, type: Hash
+
+  # Index and data sources
   field :index_name, type: String
+  field :datasources, type: Hash
+
+  # Project details
+  field :title, type: String
+  field :theme, type: String
+  field :favicon, type: String
+  field :logo, type: String
+  field :info_links, type: Hash
   
   # Load in the config file
-  def self.parse_config
-    self.project_config = JSON.parse(File.read(self.project_file))
-  end
-  parse_config
-
-  # Load the index name
-  def load_index_name
-    index_name = project_config["index_name"]
+  def parse_config(project_file)
+    self.project_config = JSON.parse(File.read(project_file))
+    #    load_datasources
+    load_fields(project_config["display_details"])
+    self.index_name = project_config["index_name"]
   end
 
   # Load in all the datasources
   def load_datasources
-    @datasources = @project_config["datasource_details"].inject({}) do |hash, source|
+    self.datasources = project_config["datasource_details"].inject({}) do |hash, source|
       hash[source[0]] = Datasource.new(source[1])
       hash
-    end
-  end
-
-  # Load display details for project
-  def load_display_details
-    allowed_fields = ["title", "theme", "favicon", "logo", "info_links"]
-    load_fieldset(@project_config, "display_details", allowed_fields)
-  end
-
-  # Load in the fields for the config section
-  def load_fieldset(config, section_key, allowed)
-    field_details = get_only_allowed(config[section_key], allowed)
-    load_fields(field_details)
-  end
-
-  # Filter for only the allowed fields
-  def get_only_allowed(field_hash, allowed)
-    field_hash.select{|k,v| allowed.include?(k)}
-  end
-
-  # Load each individual field into instance variable
-  def load_fields(field_hash)
-    field_hash.each do |key, value|
-      instance_variable_set("@#{key}", value)
     end
   end
 end
