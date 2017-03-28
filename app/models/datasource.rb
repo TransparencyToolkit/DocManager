@@ -1,6 +1,9 @@
 class Datasource
   include SetFields
   include Mongoid::Document
+  embedded_in :project
+
+  # Config file
   field :source_config, type: Hash
 
   # datasource_details

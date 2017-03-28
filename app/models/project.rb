@@ -1,8 +1,9 @@
 class Project
   include SetFields
   include Mongoid::Document
-  # Config/settings
-  field :project_file, type: String
+  embeds_many :datasources
+  
+  # Config file
   field :project_config, type: Hash
 
   # Index and data sources
@@ -19,16 +20,18 @@ class Project
   # Load in the config file
   def parse_config(project_file)
     self.project_config = JSON.parse(File.read(project_file))
-    #    load_datasources
     load_fields(project_config["display_details"])
     self.index_name = project_config["index_name"]
+    load_datasources
   end
 
   # Load in all the datasources
   def load_datasources
-    self.datasources = project_config["datasource_details"].inject({}) do |hash, source|
-      hash[source[0]] = Datasource.new(source[1])
-      hash
+    project_config["data_source_details"].each do |spec_file|
+      source = Datasource.new
+      source.parse_config(spec_file)
+      source.project = self
+      source.save
     end
   end
 end

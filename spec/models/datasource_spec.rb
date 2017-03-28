@@ -2,10 +2,18 @@ require "rails_helper"
 
 RSpec.describe Datasource do
   describe "datasource gen" do
+    let(:project_config) {"dataspec_files/projects/tweetpeople.json"}
+    let(:project) do
+      p = Project.create
+      p.parse_config(project_config)
+      p
+    end
+    
     let(:datasource_config) {"dataspec_files/data_sources/twitter_profiles.json"}
     let(:datasource) do
-      p = Datasource.create
+      p = Datasource.new
       p.parse_config(datasource_config)
+      p.project = project
       p
     end
     

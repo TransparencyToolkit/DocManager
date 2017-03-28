@@ -4,7 +4,7 @@ RSpec.describe Project do
   describe "project gen" do
     let(:project_config) {"dataspec_files/projects/tweetpeople.json"}
     let(:project) do
-      p = Project.create(project_file: project_config)
+      p = Project.new
       p.parse_config(project_config)
       p
     end
@@ -25,11 +25,12 @@ RSpec.describe Project do
       expect(project.index_name).to eq("tweet_people")
     end
 
- #   it "should generate the datasources" do
-#      test_datasource = Datasource.new("dataspec_files/data_sources/twitter_profiles.json").instance_variables
- #     expect(project.datasources).to be_a(Hash)
- #     expect(project.datasources.keys.length).to eq(1)
- #     expect(project.datasources["TwitterUser"].instance_variables).to eq(test_datasource)
- #   end
+    it "should generate the datasources" do
+      test_datasource = Datasource.new
+      test_datasource.parse_config("dataspec_files/data_sources/twitter_profiles.json")
+      expect(project.datasources).to be_a(Array)
+      expect(project.datasources.length).to eq(1)
+      expect(project.datasources.first.name).to eq(test_datasource.name)
+    end
   end
 end
