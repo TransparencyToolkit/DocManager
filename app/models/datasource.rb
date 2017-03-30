@@ -24,6 +24,8 @@ class Datasource
   field :fields_to_track, type: Array
   field :most_recent_timestamp, type: String
 
+  field :source_fields, type: Hash
+
   # Load in the config file
   def parse_config(file)
     self.source_config = JSON.parse(File.read(file))
@@ -31,7 +33,7 @@ class Datasource
     load_fields(source_config["index_details"])
     load_fields(source_config["id_details"])
     load_fields(source_config["version_tracking_details"])
-    self.fields = source_config["fields"]
+    self.source_fields = source_config["fields"]
     return self
   end
 end

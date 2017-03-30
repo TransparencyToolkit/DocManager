@@ -44,9 +44,9 @@ RSpec.describe Datasource do
     end
 
     it "should load the fields" do
-      expect(datasource.fields.length).to eq(18)
-      expect(datasource.fields).to be_a(Hash)
-      expect(datasource.fields["profile_image_url_https"]["human_readable"]).to eq("Profile Pic")
+      expect(datasource.source_fields.length).to eq(18)
+      expect(datasource.source_fields).to be_a(Hash)
+      expect(datasource.source_fields["profile_image_url_https"]["human_readable"]).to eq("Profile Pic")
     end
   end
 end

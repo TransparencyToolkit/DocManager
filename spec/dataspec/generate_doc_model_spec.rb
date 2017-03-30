@@ -14,5 +14,12 @@ RSpec.describe GenerateDocModel do
     it "should generate a document class" do
       expect(GenerateDocModel.gen_doc_class(project.datasources.first).to_s).to eq("GenerateDocModel::TweetPeopleTwitterUser")
     end
+
+    it "should save mappings correctly in the class" do
+      cl = GenerateDocModel.gen_doc_class(project.datasources.first)
+      mappings = cl.mappings.to_hash[:tweet_people_twitter_user][:properties][:name]
+      intended = {:type=>"string", :analyzer=>"english", :term_vector=>"with_positions_offsets_payloads"}
+      expect(mappings).to eq(intended)
+    end
   end
 end

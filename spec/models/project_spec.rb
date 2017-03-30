@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe Project do
   describe "project gen" do
+    Project.delete_all
     let(:project_config) {"dataspec_files/projects/tweetpeople.json"}
     let(:datasource1) {"dataspec_files/data_sources/twitter_profiles.json"}
     let(:project) do

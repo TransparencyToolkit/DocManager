@@ -1,3 +1,4 @@
+# Create a class for the document model
 module GenerateDocModel
   # Generate the document class
   def self.gen_doc_class(data_source)
@@ -26,6 +27,10 @@ module GenerateDocModel
 
         # Associate it with the correct project index
         index_name data_source.project.index_name
+
+        # Generate the mapping
+        extend GenerateMapping
+        map_all_fields(data_source)
       end
 
       # Set constant and return class
