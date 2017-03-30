@@ -11,6 +11,7 @@ require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+load "app/dataspec/load_dataspec.rb"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,10 +19,11 @@ Bundler.require(*Rails.groups)
 
 module DocManager
   class Application < Rails::Application
+    include LoadDataspec
     config.autoload_paths += %W(#{config.root}/app)
     Mongoid.load!("config/mongoid.yml")
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    config.after_initialize do
+      load_all_dataspecs
+    end
   end
 end

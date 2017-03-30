@@ -32,5 +32,6 @@ class Datasource
     load_fields(source_config["id_details"])
     load_fields(source_config["version_tracking_details"])
     self.fields = source_config["fields"]
+    return self
   end
 end

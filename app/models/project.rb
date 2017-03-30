@@ -1,5 +1,6 @@
 class Project
   include SetFields
+  include CrudDatasource
   include Mongoid::Document
   embeds_many :datasources
   
@@ -23,15 +24,13 @@ class Project
     load_fields(project_config["display_details"])
     self.index_name = project_config["index_name"]
     load_datasources
+    return self
   end
 
   # Load in all the datasources
   def load_datasources
     project_config["data_source_details"].each do |spec_file|
-      source = Datasource.new
-      source.parse_config(spec_file)
-      source.project = self
-      source.save
+      create_datasource(spec_file)
     end
   end
 end

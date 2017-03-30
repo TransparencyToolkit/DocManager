@@ -3,6 +3,7 @@ require "rails_helper"
 RSpec.describe Project do
   describe "project gen" do
     let(:project_config) {"dataspec_files/projects/tweetpeople.json"}
+    let(:datasource1) {"dataspec_files/data_sources/twitter_profiles.json"}
     let(:project) do
       p = Project.new
       p.parse_config(project_config)
@@ -27,10 +28,14 @@ RSpec.describe Project do
 
     it "should generate the datasources" do
       test_datasource = Datasource.new
-      test_datasource.parse_config("dataspec_files/data_sources/twitter_profiles.json")
+      test_datasource.parse_config(datasource1)
       expect(project.datasources).to be_a(Array)
       expect(project.datasources.length).to eq(1)
       expect(project.datasources.first.name).to eq(test_datasource.name)
+    end
+
+    it "should check if a data source exists on the project" do
+      expect(project.datasource_exists?(datasource1)).to be_truthy
     end
   end
 end

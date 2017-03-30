@@ -1,16 +1,16 @@
 {
-    "display_details": {
-	"title": "Tweet People",
-	"theme": "default",
-	"favicon": "tt-favicon.ico",
-	"logo": "tt-logo.png",
-	"info_links": {
-	    "Description": "https://transparencytoolkit.org",
-	    "Advanced Search": "/advancedsearch/"
-	}
-    },
-    "data_source_details": [
-	"dataspec_files/data_sources/twitter_profiles.json"
-    ],
-    "index_name": "tweet_people"
+  "display_details": {
+    "title": "Tweet People",
+    "theme": "default",
+    "favicon": "tt-favicon.ico",
+    "logo": "tt-logo.png",
+    "info_links": {
+      "Description": "https://transparencytoolkit.org",
+      "Advanced Search": "/advancedsearch/"
+    }
+  },
+  "data_source_details": [
+    "dataspec_files/data_sources/twitter_profiles.json"
+  ],
+  "index_name": "tweet_people"
 }
