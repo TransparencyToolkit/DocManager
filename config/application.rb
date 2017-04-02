@@ -12,6 +12,7 @@ require "action_cable/engine"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
 load "app/dataspec/load_dataspec.rb"
+load "app/index/index_manager.rb"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -20,10 +21,13 @@ Bundler.require(*Rails.groups)
 module DocManager
   class Application < Rails::Application
     include LoadDataspec
+    include IndexManager
     config.autoload_paths += %W(#{config.root}/app)
     Mongoid.load!("config/mongoid.yml")
     config.after_initialize do
       load_all_dataspecs
+      sleep(1)
+      create_all_indexes
     end
   end
 end

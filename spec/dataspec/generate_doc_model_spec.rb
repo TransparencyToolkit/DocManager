@@ -4,6 +4,7 @@ RSpec.describe GenerateDocModel do
   include LoadDataspec
   include GenerateDocModel
   describe "generate models for each data source" do
+    Project.delete_all
     let(:project_path) {"dataspec_files/projects/tweetpeople.json"}
     let(:project) { create_project(project_path) }
     
@@ -21,5 +22,7 @@ RSpec.describe GenerateDocModel do
       intended = {:type=>"string", :analyzer=>"english", :term_vector=>"with_positions_offsets_payloads"}
       expect(mappings).to eq(intended)
     end
+
+    Project.delete_all
   end
 end

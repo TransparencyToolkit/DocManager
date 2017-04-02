@@ -1,15 +1,21 @@
 module IndexManager
-  def self.create_index(index_name)
-    client = Doc.gateway.client # UPDATE TO WORK WITH DYNAMIC DOC TYPES
+  # Creates all the indexes specified in projects
+  def create_all_indexes
+    # Create the elasticsearch client for all models
+    Elasticsearch::Model.client = Elasticsearch::Client.new log: true
 
-    # Delete index if it already exists
-    client.indices.delete index: index_name rescue nil
+    # Create all indexes (for each project)
+    all_indexes = Project.all.map{|p| p.index_name}.uniq.compact
+    all_indexes.each do |index|
+      create_index(index, Elasticsearch::Model.client)
+    end
+  end
 
-#    settings = ENAnalyzer.analyzerSettings
- #   mappings = doc_class.mappings.to_hash
-
-    # Create index with appropriate settings and mappings
-    client.indices.create index: index_name,
-                          body: {} 
+  # Create the index specified
+  def create_index(index_name, client)
+    # Check if it exists first
+    if !client.indices.exists?(index: index_name)
+      client.indices.create index: index_name
+    end
   end
 end
