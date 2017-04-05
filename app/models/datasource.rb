@@ -15,6 +15,10 @@ class Datasource
   field :mapping, type: String
   field :class_name, type: String
 
+  # sort_details
+  field :sort_field, type: String
+  field :sort_order, type: String
+
   # id_details
   field :id_field, type: String
   field :secondary_id, type: Array
@@ -31,6 +35,7 @@ class Datasource
     self.source_config = JSON.parse(File.read(file))
     load_fields(source_config["data_source_details"])
     load_fields(source_config["index_details"])
+    load_fields(source_config["sort_details"])
     load_fields(source_config["id_details"])
     load_fields(source_config["version_tracking_details"])
     self.source_fields = source_config["fields"]

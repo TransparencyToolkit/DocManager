@@ -12,7 +12,8 @@ module GenerateMapping
 
   # Generate source mapping for analyzer
   def generate_analyzer_hash(source)
-    return {analyzer: source.mapping, term_vector: 'with_positions_offsets_payloads'}
+    analyzer_hash = {analyzer: source.mapping, term_vector: 'with_positions_offsets_payloads'}
+    return analyzer_hash
   end
 
   # Infer the field type

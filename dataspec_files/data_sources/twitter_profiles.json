@@ -8,6 +8,10 @@
 	"mapping": "english",
 	"class_name": "TwitterUser"
     },
+    "sort_details": {
+	"sort_field": "created_at",
+	"sort_order": "asc"
+    },
     "id_details": {
 	"id_field": "id",
 	"secondary_id": [],
@@ -43,7 +47,7 @@
 	    "icon": "",
 	    "human_readable": "Display Name"
 	},
-	"username": {
+	"screen_name": {
 	    "display_type": "Title",
 	    "icon": "",
 	    "human_readable": "Username"

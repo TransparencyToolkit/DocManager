@@ -18,4 +18,11 @@ module IndexManager
       client.indices.create index: index_name
     end
   end
+
+  # Clear all for index
+  def clear_all(index)
+    Project.delete_all
+    Elasticsearch::Model.client = Elasticsearch::Client.new log: true
+    Elasticsearch::Model.client.indices.delete index: index rescue nil
+  end
 end

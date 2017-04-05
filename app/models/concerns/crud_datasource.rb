@@ -11,7 +11,7 @@ module CrudDatasource
       source.save
       found_datasource = source
     end
-
+    
     # Create the doc model
     GenerateDocModel.gen_doc_class(found_datasource)
   end
