@@ -34,12 +34,12 @@
 	},
 	"follower_of": {
 	    "display_type": "Category",
-	    "icon": "",
+	    "icon": "social",
 	    "human_readable": "Follower Of"
 	},
 	"is_followed_by": {
 	    "display_type": "Category",
-	    "icon": "",
+	    "icon": "shared-with",
 	    "human_readable": "Followed By"
 	},
 	"name": {
@@ -54,7 +54,7 @@
 	},
 	"location": {
 	    "display_type": "Category",
-	    "icon": "",
+	    "icon": "countries",
 	    "human_readable": "Location"
 	},
 	"description": {
@@ -99,17 +99,17 @@
 	},
 	"lang": {
 	    "display_type": "Category",
-	    "icon": "",
+	    "icon": "comment",
 	    "human_readable": "Language"
 	},
 	"verified": {
 	    "display_type": "Category",
-	    "icon": "",
+	    "icon": "checkmark",
 	    "human_readable": "Verified"
 	},
 	"time_zone": {
 	    "display_type": "Category",
-	    "icon": "",
+	    "icon": "geopoint",
 	    "human_readable": "Timezone"
 	}
     }
