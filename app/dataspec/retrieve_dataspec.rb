@@ -25,12 +25,52 @@ module RetrieveDataspec
     render json: project.to_json
   end
 
+  # Get the dataspects for the project
+  def get_dataspecs_for_project
+    project = get_project(params["index_name"])
+    render json: project.datasources.to_json
+  end
+
   # Get the list of facets for the project
   def get_facet_list(index_name)
     project = get_project(index_name)
     project.datasources.inject([]) do |facets, d|
       facets += d.source_fields.select{|k, v| v["display_type"] == "Category"}.map{|k,v| k}
     end
+  end
+
+  # Get fields for long text
+  def get_longtext_fields(index_name)
+    project = get_project(index_name)
+    project.datasources.inject([]) do |long, d|
+      long += d.source_fields.select{|k, v| v["display_type"] == "Long Text"}.map{|k,v| k}
+    end
+  end
+
+  # Get the list of fields for the project
+  def get_search_field_list(index_name)
+    project = get_project(index_name)
+    non_search_fields = ["Date", "DateTime", "Link", "Number"]
+
+    # Filter out non-search fields
+    project.datasources.inject([]) do |fields, d|
+      fields += d.source_fields.reject{|k, v| non_search_fields.include?(v["display_type"])}.map{|k,v| k}
+    end
+  end
+
+  def get_highlight_field_list(index_name)
+    fields = get_search_field_list(index_name)
+
+    fields.inject({}) do |to_highlight, field|
+      to_highlight[field] = highlight_fragments(field, index_name)
+      to_highlight
+    end
+  end
+
+  # Truncate highlighted field only when needed
+  def highlight_fragments(field, index_name)
+    longtext = get_longtext_fields(index_name)
+    longtext.include?(field) ? (return {number_of_fragments: 0}) : (return {})
   end
 
   # Calls get_facet_list and used in controller- SIMILAR TO ABOVE

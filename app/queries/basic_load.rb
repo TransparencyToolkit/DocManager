@@ -13,7 +13,7 @@ module BasicLoad
 
     # Generate query hash with models, facet fields, start/size, sort field/order
     models = get_all_models_for_project(index_name)
-    facet_query = gen_facet_query(index_name)
+    facet_query = gen_aggs_query(index_name)
     query_hash = {from: start, size: 30, aggs: facet_query}
     query_hash[:sort] = {sources.first.sort_field => sources.first.sort_order} if !sources.first.sort_field.empty?
 
@@ -21,13 +21,13 @@ module BasicLoad
   end
 
   # Generate facet query
-  def gen_facet_query(index_name)
-    facets = get_facet_list(index_name)
+#  def gen_facet_query(index_name)
+ #   facets = get_facet_list(index_name)
 
     # Make query hash
-    return facets.inject({}) do |h, field|
-      h[field.to_sym] = {terms: {field: field+".keyword", size: 500}}
-      h
-    end
-  end
+  #  return facets.inject({}) do |h, field|
+  #    h[field.to_sym] = {terms: {field: field+".keyword", size: 500}}
+  #    h
+  #  end
+ # end
 end

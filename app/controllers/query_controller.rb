@@ -3,4 +3,5 @@ class QueryController < ApplicationController
   skip_before_action :verify_authenticity_token
   include BasicLoad
   include CountQueries
+  include RunSearchQuery
 end
