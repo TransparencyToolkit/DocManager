@@ -4,12 +4,12 @@ module QueryBuilder
   include RetrieveDataspec
   
   # Build the query
-  def build_query(search_term, field_to_search, project_index, start_offset)
+  def build_query(search_term, field_to_search, project_index, start_offset, facet_params)
     # Generate combined search query
-    search_query = build_search_query(search_term, field_to_search, project_index)
-    facet_query = nil
+    search_query = build_search_query(search_term, field_to_search, project_index) if !search_term.blank?
+    facet_query = build_facet_filter_query(facet_params)
     combined_query = combine_search_and_facet_queries(search_query, facet_query)
-
+    
     # Get the facets to load and things to highlight
     aggs_hash = gen_aggs_query(project_index)
     highlight_fields = get_highlight_field_list(project_index)
@@ -34,12 +34,18 @@ module QueryBuilder
       }}
   end
 
+  # Build a list of facet filters
+  def build_facet_filter_query(facet_params)
+    facets = JSON.parse(facet_params)
+    return facets.map{|i| {term: i}}
+  end
+
   # Combine search and facet queries based on if it is search and facets, just search, just facets
   def combine_search_and_facet_queries(search_query, facet_query)
     if !facet_query.blank? && !search_query.blank?
-      full_query = { filtered: { query: search_query, filter: facet_query }}
+      full_query = { bool: { must: search_query, filter: facet_query }}
     elsif search_query.blank?
-      full_query = { filtered: { filter: facet_query}}
+      full_query = { bool: { filter: facet_query}}
     else
       full_query = search_query
     end

@@ -19,15 +19,4 @@ module BasicLoad
 
     render json: JSON.pretty_generate(Elasticsearch::Model.search(query_hash, models).response)
   end
-
-  # Generate facet query
-#  def gen_facet_query(index_name)
- #   facets = get_facet_list(index_name)
-
-    # Make query hash
-  #  return facets.inject({}) do |h, field|
-  #    h[field.to_sym] = {terms: {field: field+".keyword", size: 500}}
-  #    h
-  #  end
- # end
 end
