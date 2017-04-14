@@ -25,6 +25,11 @@ module RetrieveDataspec
     render json: project.to_json
   end
 
+  def get_dataspec_for_project_source(index_name, item_type)
+    project = get_project(index_name)
+    return project.datasources.where(class_name: item_type).first
+  end
+
   # Get the dataspects for the project
   def get_dataspecs_for_project
     project = get_project(params["index_name"])

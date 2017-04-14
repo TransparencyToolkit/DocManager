@@ -3,6 +3,18 @@ load 'dataspec/retrieve_dataspec.rb'
 # Queries that are not for search, but just loading the set of docs specified
 module BasicLoad
   include RetrieveDataspec
+
+  # Get the single doc passed in
+  def get_doc
+    # Get info it needs to search
+    doc_id = params["doc_id"]
+    index = params["index_name"]
+    models = get_all_models_for_project(index)
+
+    # Search for document
+    doc = Elasticsearch::Model.search({query: {match: {"_id" => doc_id}}}, models).response["hits"]["hits"].first
+    render json: JSON.pretty_generate(doc)
+  end
   
   # Get page of results
   def get_docs_on_index_page
