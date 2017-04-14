@@ -67,11 +67,6 @@ module QueryBuilder
       highlight[field] = highlight_fragments(field, project_index)
       highlight
     end
-    
-    # TODO:
-    # Make work for all
-    # Possibly remoe highlight method
-    # Test (ONLY highlight searched)
   end
   
   # Generate aggergations query

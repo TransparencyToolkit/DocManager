@@ -58,15 +58,6 @@ module RetrieveDataspec
     end
   end
 
-  def get_highlight_field_list(index_name)
-    fields = get_search_field_list(index_name)
-
-    fields.inject({}) do |to_highlight, field|
-      to_highlight[field] = highlight_fragments(field, index_name)
-      to_highlight
-    end
-  end
-
   # Truncate highlighted field only when needed
   def highlight_fragments(field, index_name)
     longtext = get_longtext_fields(index_name)
