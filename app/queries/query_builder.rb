@@ -6,14 +6,7 @@ module QueryBuilder
   # Build the query
   def build_query(search_query, range_query, project_index, start_offset, facet_params)
     # Generate combined search query
-    field_query_list = search_query.inject([]) do |query_list, queries_for_source|
-      queries_for_source[1].each do |field, value|
-        field_to_query = field
-        query_list.push(build_search_query(value, field_to_query, project_index))
-      end
-      query_list
-    end
-    
+    field_query_list = build_field_query_list(search_query, project_index)
     facet_query = build_facet_filter_query(facet_params)
     combined_query = combine_search_and_facet_queries(field_query_list, facet_query, range_query)
     
@@ -24,6 +17,20 @@ module QueryBuilder
     # Finish building query
     return {from: start_offset, size: 30, query: combined_query, aggs: aggs_hash,
             highlight: { pre_tags: ["<b class='is_highlighted'>"], post_tags: ["</b>"], fields: highlight_fields}}
+  end
+
+  
+  # Generate a list of field queries
+  def build_field_query_list(search_query, project_index)
+    return search_query.inject([]) do |query_list, queries_for_source|
+      # Go through all fields in source
+      queries_for_source[1].each do |field, value|
+        # Use below method to generate query per field
+        field_to_query = field
+        query_list.push(build_search_query(value, field_to_query, project_index))
+      end
+      query_list
+    end
   end
   
   # Builds the query based on input to search fields
@@ -40,7 +47,7 @@ module QueryBuilder
         flags: "AND|OR|PHRASE|PREFIX|NOT|FUZZY|SLOP|NEAR" 
       }}
   end
-
+  
   # Build a list of facet filters
   def build_facet_filter_query(facets)
     return facets.map{|i| {term: i}}
@@ -56,6 +63,7 @@ module QueryBuilder
     return { bool: combined_query_hash }
   end
 
+
   # Highlight the fields that are being searched
   def build_highlight_query(project_index, search_query)
     # Get list of fields to highlight
@@ -69,7 +77,7 @@ module QueryBuilder
     end
   end
   
-  # Generate aggergations query
+  # Generate aggregations query for sidebar
   def gen_aggs_query(index_name)
     facets = get_facet_list(index_name)
 
