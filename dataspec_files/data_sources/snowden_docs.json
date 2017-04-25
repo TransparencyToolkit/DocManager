@@ -1,0 +1,104 @@
+{
+    "data_source_details": {
+	"name": "Document",
+	"description": "Snowden documents"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "SnowdenDoc"
+    },
+    "view_details": {
+	"show_tabs": ["Text", "Attachment"]
+    },
+    "sort_details": {
+	"sort_field": "released_date",
+	"sort_order": "desc"
+    },
+    "id_details": {
+	"id_field": "title",
+	"secondary_id": ["released_date"],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "released_date"
+    },
+    "fields": {
+	"released_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Release Date"
+	},
+	"link": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Link"
+	},
+	"title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"article_links": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Article Links"
+	},
+	"pdf_paths": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "File Path",
+	    "prefix": "https://edwardsnowden.com/docs/docs/"
+	},
+	"document_topic": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Document Topic"
+	},
+	"document_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Document Date"
+	},
+	"doc_text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Document"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"sigads": {
+	    "display_type": "Category",
+	    "icon": "bookmark",
+	    "human_readable": "SIGADS"
+	},
+	"codewords": {
+	    "display_type": "Category",
+	    "icon": "codewords",
+	    "human_readable": "Codewords"
+	},
+	"agency": {
+	    "display_type": "Category",
+	    "icon": "agencies",
+	    "human_readable": "Agency"
+	},
+	"countries_mentioned": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Countries Mentioned"
+	},
+	"overall_classification": {
+	    "display_type": "Category",
+	    "icon": "classification",
+	    "human_readable": "Classification"
+	},
+	"overall_relto": {
+	    "display_type": "Category",
+	    "icon": "shared-with",
+	    "human_readable": "Countries Shared With"
+	}
+    }
+}

@@ -8,6 +8,9 @@
 	"mapping": "english",
 	"class_name": "TwitterUser"
     },
+    "view_details": {
+	"show_tabs": ["Text"]
+    },
     "sort_details": {
 	"sort_field": "created_at",
 	"sort_order": "asc"

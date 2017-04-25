@@ -19,6 +19,9 @@ class Datasource
   field :sort_field, type: String
   field :sort_order, type: String
 
+  # view_details
+  field :show_tabs, type: Array
+
   # id_details
   field :id_field, type: String
   field :secondary_id, type: Array
@@ -36,6 +39,7 @@ class Datasource
     load_fields(source_config["data_source_details"])
     load_fields(source_config["index_details"])
     load_fields(source_config["sort_details"])
+    load_fields(source_config["view_details"])
     load_fields(source_config["id_details"])
     load_fields(source_config["version_tracking_details"])
     self.source_fields = source_config["fields"]

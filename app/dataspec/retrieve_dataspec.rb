@@ -44,6 +44,25 @@ module RetrieveDataspec
     end
   end
 
+  # Return JSON with facets divided by source
+  def get_facet_list_divided_by_source
+    project = get_project(params["index_name"])
+
+    # Get a list of all facets that occur more than once
+    all_facets = get_facet_list(params["index_name"])
+    overall_facet_names = all_facets.select{|facet| all_facets.count(facet) > 1}.uniq
+    overall_facets = get_facet_details.select{|k, v| overall_facet_names.include?(k)}
+
+    # Divide the facets by source
+    facet_list = project.datasources.inject({"overall" => overall_facets}) do |list, source|
+      facets_for_source = source.source_fields.select{|k, v| v["display_type"] == "Category"}.except(*overall_facet_names)
+      list[source["source_config"]["data_source_details"]["name"]] = facets_for_source
+      list
+    end
+
+    render json: facet_list
+  end
+
   # Get fields for long text
   def get_longtext_fields(index_name)
     project = get_project(index_name)
@@ -69,24 +88,27 @@ module RetrieveDataspec
     longtext.include?(field) ? (return {number_of_fragments: 0}) : (return {})
   end
 
-  # Calls get_facet_list and used in controller- SIMILAR TO ABOVE
-  def get_facet_details_for_project
+  # Gets the acet details for the project
+  def get_facet_details
+    facet_fields = get_facet_list(params["index_name"])
     project = get_project(params["index_name"])
-    
+
     facet_fields = project.datasources.inject({}) do |facets, d|
       facets.merge(d.source_fields.select{|k, v| v["display_type"] == "Category"})
     end
-    
-    render json: facet_fields
+  end
+
+  # Calls get_facet_list and used in controller
+  def get_facet_details_for_project
+    render json: get_facet_details
   end
 
   # Get the dataspec for the document
   def get_dataspec_for_doc
     # Parse out project, doc, and doc type
     project = get_project(params["index_name"])
-    doc = JSON.parse(params["doc"])
-    doc_type = doc["_type"].gsub("#{doc["_index"]}_", "").camelize
-
+    doc_type = params["doc_type"].gsub("#{params["index_name"]}_", "").camelize
+   
     # Return the dataspec
     dataspec = project.datasources.select{|d| d.class_name == doc_type}.first.to_json
     render json: dataspec

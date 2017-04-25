@@ -18,5 +18,8 @@ class DataspecController < ApplicationController
   def get_dataspecs_for_project2
     get_dataspecs_for_project
   end
-  
+
+  def get_facet_list_divided_by_source2
+    get_facet_list_divided_by_source
+  end
 end

@@ -10,7 +10,8 @@
     }
   },
   "data_source_details": [
-    "dataspec_files/data_sources/twitter_profiles.json"
+      "dataspec_files/data_sources/twitter_profiles.json",
+      "dataspec_files/data_sources/snowden_docs.json"
   ],
   "index_name": "tweet_people"
 }
