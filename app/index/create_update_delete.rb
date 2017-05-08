@@ -14,7 +14,8 @@ module CreateUpdateDelete
   # Index a new item
   def create_item(doc_data, index_name, doc_class, item_type)
     id = generate_id(doc_data, index_name, item_type)
-    processed_doc_data = remap_dates(index_name, item_type, doc_data).merge(id: id)
+    thread_id = set_thread_id(doc_data, index_name, item_type)
+    processed_doc_data = remap_dates(index_name, item_type, doc_data).merge({id: id, thread_id: thread_id})
 
     # Create the doc or stop if it fails
     begin

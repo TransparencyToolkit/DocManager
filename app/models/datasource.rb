@@ -18,9 +18,11 @@ class Datasource
   # sort_details
   field :sort_field, type: String
   field :sort_order, type: String
+  field :thread_id_field, type: String
 
   # view_details
   field :show_tabs, type: Array
+  field :results_template, type: String
 
   # id_details
   field :id_field, type: String

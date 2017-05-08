@@ -8,7 +8,8 @@
 	"class_name": "SnowdenDoc"
     },
     "view_details": {
-	"show_tabs": ["Text", "Attachment"]
+	"show_tabs": ["text", "document", "link"],
+	"results_template": "default"
     },
     "sort_details": {
 	"sort_field": "released_date",
@@ -24,15 +25,15 @@
 	"most_recent_timestamp": "released_date"
     },
     "fields": {
+	"thread_id": {
+	    "display_type": "None",
+	    "icon": "",
+	    "human_readable": "Thread ID"
+	},
 	"released_date": {
 	    "display_type": "Date",
 	    "icon": "",
 	    "human_readable": "Release Date"
-	},
-	"link": {
-	    "display_type": "Link",
-	    "icon": "",
-	    "human_readable": "Link"
 	},
 	"title": {
 	    "display_type": "Title",
@@ -48,7 +49,7 @@
 	    "display_type": "Attachment",
 	    "icon": "",
 	    "human_readable": "File Path",
-	    "prefix": "https://edwardsnowden.com/docs/docs/"
+	    "prefix": "/attachments/home/shidash/Code/NSA-Data/docs/"
 	},
 	"document_topic": {
 	    "display_type": "Category",

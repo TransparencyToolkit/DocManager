@@ -1,0 +1,60 @@
+{
+    "data_source_details": {
+	"name": "Materials",
+	"description": "SII Materials"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "SiiMaterial"
+    },
+    "view_details": {
+	"show_tabs": ["text", "document"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "released_date",
+	"sort_order": "desc"
+    },
+    "id_details": {
+	"id_field": "bibtex_key",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": ""
+    },
+    "fields": {
+	"thread_id": {
+	    "display_type": "None",
+	    "icon": "",
+	    "human_readable": "Thread ID"
+	},
+	"bibtex_key": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "Key"
+	},
+	"name": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Name"
+	},
+	"text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"doc_cloud_id": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "File",
+	    "prefix": "https://documentcloud.org/documents/"
+	},
+	"company_name": {
+	    "display_type": "Category",
+	    "icon": "building",
+	    "human_readable": "Company"
+	}
+    }
+}

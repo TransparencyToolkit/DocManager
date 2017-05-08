@@ -9,7 +9,8 @@
 	"class_name": "TwitterUser"
     },
     "view_details": {
-	"show_tabs": ["Text"]
+	"show_tabs": ["text"],
+	"results_template": "default"
     },
     "sort_details": {
 	"sort_field": "created_at",
@@ -25,6 +26,11 @@
 	"most_recent_timestamp": "created_at"
     },
     "fields": {
+	"thread_id": {
+	    "display_type": "None",
+	    "icon": "",
+	    "human_readable": "Thread ID"
+	},
 	"id": {
 	    "display_type": "Tiny Text",
 	    "icon": "",
