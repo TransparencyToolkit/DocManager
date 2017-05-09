@@ -31,4 +31,16 @@ module BasicLoad
     
     render json: JSON.pretty_generate(Elasticsearch::Model.search(query_hash, models).response)
   end
+
+  # Get the docs with the same thread ID
+  def get_docs_in_thread
+    # Parse params
+    index_name = params["index_name"]
+    thread_id = params["thread_id"]
+    models = get_all_models_for_project(index_name)
+
+    # Get the thread
+    docs = Elasticsearch::Model.search({query: {term: {"thread_id.keyword" => thread_id}}, size: 100}, models).response["hits"]["hits"]
+    render json: JSON.pretty_generate(docs)
+  end
 end

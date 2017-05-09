@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   match 'get_facet_list_divided_by_source' => 'dataspec#get_facet_list_divided_by_source2', as: :dataspec_get_facet_list_divided_by_source, via: [:get, :post]
   match 'run_query' => 'query#run_query', as: :query_run_query, via: [:get, :post]
   match 'get_doc' => 'query#get_doc', as: :query_get_doc, via: [:get, :post]
+  match 'get_docs_in_thread' => 'query#get_docs_in_thread', as: :query_get_docs_in_thread, via: [:get, :post]
 end
