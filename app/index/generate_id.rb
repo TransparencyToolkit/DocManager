@@ -32,7 +32,7 @@ module GenerateID
   # Get the secondary ID fields
   def get_secondary_id(datasource, doc_data, id)
     return datasource.secondary_id.inject(id) do |id, field|
-      id += clean_id(doc_data[field])
+      id += clean_id(doc_data[field]).to_s
     end
   end
 

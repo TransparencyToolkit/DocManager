@@ -31,6 +31,21 @@
 	    "icon": "",
 	    "human_readable": "Thread ID"
 	},
+	"version_changed": {
+	    "display_type": "Category",
+	    "icon": "modified",
+	    "human_readable": "Modified?"
+	},
+	"doc_versions": {
+	    "display_type": "None",
+	    "icon": "",
+	    "human_readable": "Versions"
+	},
+	"versions_list": {
+	    "display_type": "None",
+	    "icon": "",
+	    "human_readable": "Versions List"
+	},
         "name": {
 	    "display_type": "Title",
 	    "icon": "",

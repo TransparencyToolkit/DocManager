@@ -2,6 +2,7 @@ module CreateUpdateDelete
   include RetrieveDataspec
   include GenerateID
   include DateParser
+  include VersionTracker
   
   # Index an array of items
   def create_items(items, index_name, item_type)
@@ -13,13 +14,19 @@ module CreateUpdateDelete
   
   # Index a new item
   def create_item(doc_data, index_name, doc_class, item_type)
+    datasource = get_dataspec_for_project_source(index_name, item_type)
+
+    # Generate the ID
     id = generate_id(doc_data, index_name, item_type)
     thread_id = set_thread_id(doc_data, index_name, item_type)
-    processed_doc_data = remap_dates(index_name, item_type, doc_data).merge({id: id, thread_id: thread_id})
 
+    # Process the data
+    processed_doc_data = remap_dates(index_name, item_type, doc_data).merge({id: id, thread_id: thread_id})
+    version_tracked = track_versions(processed_doc_data, doc_class, datasource)
+    
     # Create the doc or stop if it fails
     begin
-      doc_class.create processed_doc_data, index: index_name
+      doc_class.create version_tracked, index: index_name
     rescue
       binding.pry
     end
