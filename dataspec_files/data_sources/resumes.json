@@ -69,7 +69,7 @@
 	"end_date": {
 	    "display_type": "Date",
 	    "icon": "",
-	    "human_readable": "end_date"
+	    "human_readable": "End Date"
 	},
 	"location": {
 	    "display_type": "Category",
