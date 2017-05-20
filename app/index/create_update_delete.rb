@@ -7,6 +7,7 @@ module CreateUpdateDelete
   # Index an array of items
   def create_items(items, index_name, item_type)
     doc_class = get_model(index_name, item_type)
+    
     items.each do |item|
       create_item(item, index_name, doc_class, item_type)
     end

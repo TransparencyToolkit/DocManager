@@ -3,9 +3,9 @@ module GenerateID
   # Set thread ID. If it is nil, set to ID field
   def set_thread_id(doc_data, index_name, item_type)
     datasource = get_dataspec_for_project_source(index_name, item_type)
-
+    
     # Set to ID if thread ID is blank, otherwise return thread ID
-    if doc_data[datasource.thread_id_field].blank?
+    if !datasource.thread_id_field || doc_data[datasource.thread_id_field].blank?
       return generate_id(doc_data, index_name, item_type)
     else
       return doc_data[datasource.thread_id_field]
