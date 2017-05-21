@@ -18,8 +18,10 @@ module RemoveItems
                                                     }]}}}, models).response["hits"]["hits"]
 
     # Delete the items or remove the tags
-    datasource = get_dataspec_for_project_source(items.first["_index"], items.first["_type"].gsub(items.first["_index"], "").camelize)
-    delete_items_from_elastic(remove_tags(items, collection, selectors, datasource))
+    if !items.blank?
+      datasource = get_dataspec_for_project_source(items.first["_index"], items.first["_type"].gsub(items.first["_index"],"").camelize)
+      delete_items_from_elastic(remove_tags(items, collection, selectors, datasource))
+    end
   end
 
   # Remove the tags if needed
