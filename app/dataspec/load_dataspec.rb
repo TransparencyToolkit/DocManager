@@ -1,15 +1,16 @@
 module LoadDataspec
   # Load in all the dataspecs
   def load_all_dataspecs
-    find_projects.each do |project_path|
+    Dir.glob("dataspec_files/projects/*").each do |project_path|
       load_project(project_path)
     end
   end
 
-  # Find the projects in the project dir
-  def find_projects
-    project_dir = "dataspec_files/projects"
-    return Dir.glob("#{project_dir}/*")
+  # Load the spec for fields common to all data sources
+  def load_overall_fields
+    Dir.glob("dataspec_files/fields_for_all_sources/*").inject({}) do |fields, spec|
+      fields.merge(JSON.parse(File.read(spec)))
+    end
   end
 
   # Load in a project

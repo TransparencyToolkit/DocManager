@@ -1,4 +1,5 @@
 class Datasource
+  include LoadDataspec
   include SetFields
   include Mongoid::Document
   embedded_in :project
@@ -44,7 +45,7 @@ class Datasource
     load_fields(source_config["view_details"])
     load_fields(source_config["id_details"])
     load_fields(source_config["version_tracking_details"])
-    self.source_fields = source_config["fields"]
+    self.source_fields = source_config["fields"].merge(load_overall_fields)
     return self
   end
 end
