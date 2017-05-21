@@ -25,9 +25,13 @@ module CreateUpdateDelete
     processed_doc_data = remap_dates(index_name, item_type, doc_data).merge({id: id, thread_id: thread_id})
     version_tracked = track_versions(processed_doc_data, doc_class, datasource)
     
-    # Create the doc or stop if it fails
+    # Create the doc, update the doc, or stop if it fails
     begin
-      doc_class.create version_tracked, index: index_name
+      if doc_class.exists?(id)
+        doc_class.find(id).update(version_tracked, index: index_name)
+      else
+        doc_class.create version_tracked, index: index_name
+      end
     rescue
       binding.pry
     end

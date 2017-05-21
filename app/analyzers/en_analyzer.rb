@@ -4,6 +4,7 @@ module ENAnalyzer
     return {
       index: {
         number_of_shards: 1,
+        max_result_window: '99999999',
         analysis: {
           filter: {
             english_stop: {

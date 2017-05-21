@@ -7,9 +7,23 @@ module VersionTracker
 
     # Add version tracking info
     versioned = append_version_to_list(already_indexed_doc, doc, datasource)
-
+   
     # Replace overall doc with more recent version if needed and return
-    unindexed_doc_more_recent?(already_indexed_doc, doc, datasource) ? (return versioned.merge!(doc)) : (return versioned)
+    most_recent = unindexed_doc_more_recent?(already_indexed_doc, doc, datasource) ? (versioned.merge!(doc)) : (versioned)
+    return merge_tags_across_versions(most_recent)
+  end
+
+  # Merge the collection and selector tags across versions of the doc
+  def merge_tags_across_versions(doc)
+    # Get all the collection and selector tags
+    merged_tag_fields = doc[:doc_versions].inject({collection_tag: [], selector_tag: []}) do  |tags, version|
+      tags[:collection_tag] = (tags[:collection_tag] | version["collection_tag"])
+      tags[:selector_tag] = (tags[:selector_tag] | version["selector_tag"])
+      tags
+    end
+
+    # Merge vaues with doc
+    doc.symbolize_keys.merge(merged_tag_fields)
   end
 
   # Check if the unindexed document is more recent

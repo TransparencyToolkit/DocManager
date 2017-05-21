@@ -1,4 +1,7 @@
+load 'app/analyzers/en_analyzer.rb'
+
 module IndexManager
+  include ENAnalyzer
   # Creates all the indexes specified in projects
   def create_all_indexes
     # Create the elasticsearch client for all models
@@ -15,7 +18,10 @@ module IndexManager
   def create_index(index_name, client)
     # Check if it exists first
     if !client.indices.exists?(index: index_name)
-      client.indices.create index: index_name
+      client.indices.create index: index_name,
+                            body: {
+                              settings: ENAnalyzer.analyzerSettings.to_hash
+                            }
     end
   end
 
