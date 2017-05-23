@@ -3,7 +3,7 @@ module ENAnalyzer
     # Settings
     return {
       index: {
-        number_of_shards: 1,
+        number_of_shards: 5,
         max_result_window: '99999999',
         analysis: {
           filter: {
