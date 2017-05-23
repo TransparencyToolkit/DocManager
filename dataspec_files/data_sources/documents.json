@@ -1,7 +1,9 @@
 {
     "data_source_details": {
-	"name": "Documents",
-	"description": "Files"
+	"name": "Files or Folders",
+	"description": "Loads in files from your computer and OCRs.",
+	"icon": "icon-folder",
+	"input_params": {"directory": "string"}
     },
     "index_details": {
 	"mapping": "english",

@@ -1,0 +1,126 @@
+{
+    "data_source_details": {
+	"name": "Tweets",
+	"description": "Crawls Twitter search.",
+	"icon": "icon-twitter",
+	"input_params": {"search_query": "string", "search_operators": "string"}
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "Tweets"
+    },
+    "view_details": {
+	"show_tabs": ["text"],
+	"results_template": "default"
+    },
+    "sort_details": {
+	"sort_field": "tweet_time",
+	"sort_order": "desc"
+    },
+    "id_details": {
+	"id_field": "tweet_link",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "time_collected"
+    },
+    "fields": {
+	"tweet_text": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Tweet Text"
+	},
+	"profile_pic": {
+	    "display_type": "Picture",
+	    "icon": "",
+	    "human_readable": "Profile Pic"
+	},
+	"hashtags": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Hashtags"
+	},
+	"mentioned_urls": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Tweeted Links"
+	},
+	"time_collected": {
+	    "display_type": "DateTime",
+	    "icon": "",
+	    "human_readable": "Time Collected"
+	},
+	"tweet_time": {
+	    "display_type": "DateTime",
+	    "icon": "",
+	    "human_readable": "Tweet Time"
+	},
+	"tweet_link": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Tweet Link"
+	},
+	"username": {
+	    "display_type": "Category",
+	    "icon": "social",
+	    "human_readable": "Username"
+	},
+	"fullname": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Name"
+	},
+	"user_id": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "User ID"
+	},
+	"coversation_id": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "Conversation Tweet"
+	},
+	"is_reply_to": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Is a Reply"
+	},
+	"reply_to_user": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Replied To"
+	},
+	"reply_to_uid": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "Reply To UIDs"
+	},
+	"retweet_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Retweet Count"
+	},
+	"favorite_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Favorite Count"
+	},
+	"reply_count": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Reply Count"
+	},
+	"mention_names": {
+	    "display_type": "Category",
+	    "icon": "geopoint",
+	    "human_readable": "Mentioned Names"
+	},
+	"mention_uids": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "Mentioned UIDs"
+	}
+    }
+}

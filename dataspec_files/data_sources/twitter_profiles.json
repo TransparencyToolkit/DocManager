@@ -2,7 +2,8 @@
     "data_source_details": {
 	"name": "Twitter Users",
 	"description": "Twitter profiles of users.",
-	"input_params": {"username": "String"}
+	"icon": "icon-twitter",
+	"input_params": {"username": "string"}
     },
     "index_details": {
 	"mapping": "english",

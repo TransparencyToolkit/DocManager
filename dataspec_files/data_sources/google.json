@@ -1,0 +1,51 @@
+{
+    "data_source_details": {
+	"name": "Google",
+	"description": "Crawls Google",
+	"icon": "icon-google",
+	"input_params": {"search_query": "string", "search_operator": "string"}
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "Google"
+    },
+    "view_details": {
+	"show_tabs": ["text", "document", "link"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "date_retrieved",
+	"sort_order": "desc"
+    },
+    "id_details": {
+	"id_field": "url",
+	"secondary_id": ["page_title"],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "date_retrieved"
+    },
+    "fields": {
+	"page_title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Page Title"
+	},
+	"date_retreived": {
+	    "display_type": "DateTime",
+	    "icon": "",
+	    "human_readable": "Date Collected"
+	},
+	"text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Page Text"
+	},
+	"url": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "URL"
+	}
+    }
+}

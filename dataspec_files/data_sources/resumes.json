@@ -1,7 +1,9 @@
 {
     "data_source_details": {
 	"name": "Resumes",
-	"description": "Resumes"
+	"description": "Resumes",
+	"icon": "icon-linkedin",
+	"input_params": {"search_query": "string"}
     },
     "index_details": {
 	"mapping": "english",

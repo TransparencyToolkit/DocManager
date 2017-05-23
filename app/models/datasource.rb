@@ -10,6 +10,7 @@ class Datasource
   # datasource_details
   field :name, type: String
   field :description, type: String
+  field :icon, type: String
   field :input_params, type: Hash
 
   # index_details
