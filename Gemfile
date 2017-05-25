@@ -29,8 +29,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'curb'
 
 # Elasticsearch dependencies
-gem "elasticsearch", git: "https://github.com/elasticsearch/elasticsearch-ruby.git"
-gem "elasticsearch-persistence", git: "https://github.com/elasticsearch/elasticsearch-rails.git", branch: "persistence-model", require:"elasticsearch/persistence/model"
-gem "elasticsearch-rails", git: "https://github.com/elasticsearch/elasticsearch-rails.git"
-gem "elasticsearch-model"
+gem 'elasticsearch'
+gem 'elasticsearch-persistence'
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
 

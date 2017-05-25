@@ -18,6 +18,7 @@ module GenerateDocModel
 
         # Includes
         require 'elasticsearch/model'
+        require 'elasticsearch/persistence/model'
         include Elasticsearch::Persistence::Model
         include Elasticsearch::Model
 
