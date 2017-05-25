@@ -17,8 +17,8 @@ module VersionTracker
   def merge_tags_across_versions(doc)
     # Get all the collection and selector tags
     merged_tag_fields = doc[:doc_versions].inject({collection_tag: [], selector_tag: []}) do  |tags, version|
-      tags[:collection_tag] = (tags[:collection_tag] | version["collection_tag"])
-      tags[:selector_tag] = (tags[:selector_tag] | version["selector_tag"])
+      tags[:collection_tag] = (tags[:collection_tag] | version["collection_tag"].to_a)
+      tags[:selector_tag] = (tags[:selector_tag] | version["selector_tag"].to_a)
       tags
     end
 
