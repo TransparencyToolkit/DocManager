@@ -1,0 +1,19 @@
+{
+  "display_details": {
+    "title": "Documents",
+    "theme": "default",
+    "favicon": "tt-favicon.ico",
+    "logo": "tt-logo.png",
+    "info_links": {
+      "Description": "https://transparencytoolkit.org",
+      "Advanced Search": "/advancedsearch/"
+    }
+  },
+  "data_source_details": [
+      "dataspec_files/data_sources/documents.json",
+      "dataspec_files/data_sources/tweets.json",
+      "dataspec_files/data_sources/google.json",
+      "dataspec_files/data_sources/resumes.json"
+  ],
+  "index_name": "default_config"
+}
