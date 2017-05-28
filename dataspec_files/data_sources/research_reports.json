@@ -70,6 +70,36 @@
 	    "display_type": "Category",
 	    "icon": "social",
 	    "human_readable": "Authors"
+	},
+	"catalyst_organizations": {
+	    "display_type": "Category",
+	    "icon": "industry",
+	    "human_readable": "Organizations Mentioned"
+	},
+	"catalyst_countries": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Countries Mentioned"
+	},
+	"catalyst_topics": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Topics"
+	},
+	"catalyst_tools": {
+	    "display_type": "Category",
+	    "icon": "twiddler",
+	    "human_readable": "Privacy Tools"
+	},
+	"catalyst_companies": {
+	    "display_type": "Category",
+	    "icon": "briefcase",
+	    "human_readable": "Companies"
+	},
+	"catalyst_language": {
+	    "display_type": "Category",
+	    "icon": "comment",
+	    "human_readable": "Language"
 	}
     }
 }

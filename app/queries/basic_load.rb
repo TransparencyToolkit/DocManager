@@ -42,4 +42,12 @@ module BasicLoad
     docs = Elasticsearch::Model.search({query: {term: {"thread_id.keyword" => thread_id}}, size: 100}, models).response["hits"]["hits"]
     render json: JSON.pretty_generate(docs)
   end
+
+  # Get a JSON of all the docs
+  def get_all_docs
+    index_name = params["index_name"]
+    models = get_all_models_for_project(index_name)
+    query_hash = {from: 0, size: 999999}
+    render json: JSON.pretty_generate(Elasticsearch::Model.search(query_hash, models).response)
+  end
 end
