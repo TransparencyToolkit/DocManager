@@ -7,7 +7,7 @@ module VersionTracker
 
     # Add version tracking info
     versioned = append_version_to_list(already_indexed_doc, doc, datasource)
-   
+    
     # Replace overall doc with more recent version if needed and return
     most_recent = unindexed_doc_more_recent?(already_indexed_doc, doc, datasource) ? (versioned.merge!(doc)) : (versioned)
     return merge_tags_across_versions(most_recent)
@@ -28,8 +28,10 @@ module VersionTracker
 
   # Check if the unindexed document is more recent
   def unindexed_doc_more_recent?(already_indexed, unindexed, datasource)
-    if already_indexed
-      return unindexed[datasource.most_recent_timestamp].to_date > already_indexed[datasource.most_recent_timestamp].to_date
+    if already_indexed && unindexed[datasource.most_recent_timestamp] && already_indexed[datasource.most_recent_timestamp]
+      return unindexed[datasource.most_recent_timestamp].to_date >= already_indexed[datasource.most_recent_timestamp].to_date
+    else
+      return true
     end
   end
 
