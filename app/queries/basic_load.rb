@@ -27,7 +27,7 @@ module BasicLoad
     models = get_all_models_for_project(index_name)
     facet_query = gen_aggs_query(index_name)
     query_hash = {from: start, size: 30, aggs: facet_query}
-    query_hash[:sort] = {"#{sources.first.sort_field}.keyword" => sources.first.sort_order} if !sources.first.sort_field.empty? && sources.length == 1
+    query_hash[:sort] = {"#{sources.first.sort_field}" => sources.first.sort_order} if !sources.first.sort_field.empty? && sources.length == 1
     render json: JSON.pretty_generate(Elasticsearch::Model.search(query_hash, models).response)
   end
 

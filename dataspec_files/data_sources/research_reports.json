@@ -1,0 +1,75 @@
+{
+    "data_source_details": {
+	"name": "Reports",
+	"description": "Reports on the Surveillance Research Archive",
+	"icon": "icon-folder"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "ResearchReport"
+    },
+    "view_details": {
+	"show_tabs": ["text", "document", "link"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "date",
+	"sort_order": "desc"
+    },
+    "id_details": {
+	"id_field": "report_link",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "date"
+    },
+    "fields": {
+	"organization": {
+	    "display_type": "Category",
+	    "icon": "agencies",
+	    "human_readable": "Published By"
+	},
+	"title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "title"
+	},
+	"date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Date Published"
+	},
+	"report_link": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Report Link"
+	},
+	"pdf_link": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "PDF"
+	},
+	"related_links": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Related Links"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"authors": {
+	    "display_type": "Category",
+	    "icon": "social",
+	    "human_readable": "Authors"
+	}
+    }
+}
