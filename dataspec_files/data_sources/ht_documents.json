@@ -1,0 +1,105 @@
+{
+    "data_source_details": {
+	"name": "Documents",
+	"description": "Loads in files from your computer and OCRs."
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "HtDocs"
+    },
+    "view_details": {
+	"show_tabs": ["text", "document"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "date",
+	"sort_order": "desc"
+    },
+    "id_details": {
+	"id_field": "rel_path",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "date"
+    },
+    "fields": {
+	"text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"rel_path": {
+	    "display_type": "Path",
+	    "icon": "",
+	    "human_readable": "Path"
+	},
+	"formatted_name": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "File Name"
+	},
+	"folders": {
+	    "display_type": "Category",
+	    "icon": "folders",
+	    "human_readable": "Folders"
+	},
+	"full_path": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "Path",
+	    "prefix": "https://ht.transparencytoolkit.org/"
+	},
+	"filetype": {
+	    "display_type": "Category",
+	    "icon": "document",
+	    "human_readable": "File Type"
+	},
+	"author": {
+	    "display_type": "Category",
+	    "icon": "social",
+	    "human_readable": "Author"
+	},
+	"creator": {
+	    "display_type": "Category",
+	    "icon": "progress",
+	    "human_readable": "Creator"
+	},
+	"producer": {
+	    "display_type": "Category",
+	    "icon": "work",
+	    "human_readable": "Producer"
+	},
+	"title": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"subject": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Subject"
+	},
+	"date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Date"
+	},
+	"keywords": {
+	    "display_type": "Category",
+	    "icon": "tag",
+	    "human_readable": "Keywords"
+	},
+	"folders": {
+	    "display_type": "Category",
+	    "icon": "folder",
+	    "human_readable": "Folders"
+	},
+	"length": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Length"
+	}
+    }
+}
