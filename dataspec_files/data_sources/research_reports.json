@@ -34,7 +34,7 @@
 	"title": {
 	    "display_type": "Title",
 	    "icon": "",
-	    "human_readable": "title"
+	    "human_readable": "Title"
 	},
 	"date": {
 	    "display_type": "Date",
