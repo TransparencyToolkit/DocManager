@@ -74,7 +74,7 @@ module RetrieveDataspec
   # Get the list of fields for the project
   def get_search_field_list(index_name)
     project = get_project(index_name)
-    non_search_fields = ["Date", "DateTime", "Link", "Number"]
+    non_search_fields = ["Date", "DateTime", "Link", "Number", "Hidden", "Attachment"]
 
     # Filter out non-search fields
     project.datasources.inject([]) do |fields, d|
