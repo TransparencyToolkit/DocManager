@@ -88,7 +88,7 @@
 	},
 	"keywords": {
 	    "display_type": "Category",
-	    "icon": "tag",
+	    "icon": "terms",
 	    "human_readable": "Keywords"
 	},
 	"folders": {
