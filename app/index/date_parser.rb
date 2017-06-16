@@ -23,6 +23,7 @@ module DateParser
   # Parse the date field and handle messy date names
   def parse_date(date)
     date = handle_unknown_present_date(date)
+    (date && !date.is_a?(Date)) ? (return Date.parse(date)) : (return date)
   end
 
   # Blank dates that are unknown or present
@@ -31,6 +32,6 @@ module DateParser
                       "Present", "Current", "Gegenwart"]
 
     # Check if date field includes any of the items in dates_to_blank array, and return nil if so
-    dates_to_blank.any?{|to_blank| date.to_s.include?(to_blank)} ? (return nil) : (return date)
+    dates_to_blank.any?{|to_blank| !date.is_a?(Date) && date.to_s.include?(to_blank)} ? (return nil) : (return date)
   end
 end

@@ -1,0 +1,18 @@
+{
+  "display_details": {
+    "title": "Snowden Doc Search",
+    "theme": "snowden",
+    "favicon": "courage-favicon.ico",
+    "logo": "courage-logo.png",
+    "info_links": {
+	"Description": "/description/",
+	"Advanced Search": "/advancedsearch/",
+	"Courage Foundation": "https://couragefound.org",
+	"Transparency Toolkit": "https://transparencytoolkit.org"
+    }
+  },
+  "data_source_details": [
+      "dataspec_files/data_sources/snowden_docs.json"
+  ],
+  "index_name": "nsadocs"
+}

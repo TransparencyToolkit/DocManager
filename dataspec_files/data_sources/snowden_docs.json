@@ -44,7 +44,7 @@
 	    "display_type": "Attachment",
 	    "icon": "",
 	    "human_readable": "File Path",
-	    "prefix": "/attachments/home/shidash/Code/NSA-Data/docs/"
+	    "prefix": "https://edwardsnowden.com/docs/docs/"
 	},
 	"document_topic": {
 	    "display_type": "Category",

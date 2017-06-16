@@ -24,8 +24,8 @@ module DocManager
     config.autoload_paths += %W(#{config.root}/app)
     Mongoid.load!("config/mongoid.yml")
     config.after_initialize do
-      sleep(30)
-      clear_all("tweet_people")
+      sleep(1)
+#      clear_all("nsadocs")
       load_all_dataspecs
       sleep(1)
       create_all_indexes
