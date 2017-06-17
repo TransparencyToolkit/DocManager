@@ -1,0 +1,106 @@
+{
+    "data_source_details": {
+	"name": "Legal Documents",
+	"description": "Loads in legal docs",
+	"icon": "icon-folder"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "LegalDocs"
+    },
+    "view_details": {
+	"show_tabs": ["text", "document"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "release_date",
+	"sort_order": "desc"
+    },
+    "id_details": {
+	"id_field": "path",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "release_date"
+    },
+    "fields": {
+	"text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"path": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "Path",
+	    "prefix": "https://couragefound.org/legal_docs/"
+	},
+	"title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"doc_type": {
+	    "display_type": "Category",
+	    "icon": "document",
+	    "human_readable": "Document Type"
+	},
+	"people": {
+	    "display_type": "Category",
+	    "icon": "social",
+	    "human_readable": "People"
+	},
+	"organizations": {
+	    "display_type": "Category",
+	    "icon": "progress",
+	    "human_readable": "Organizations"
+	},
+	"case": {
+	    "display_type": "Category",
+	    "icon": "work",
+	    "human_readable": "Case"
+	},
+	"court": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Court"
+	},
+	"jurisdiction": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Jurisdiction"
+	},
+	"release_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Release Date"
+	},
+	"doc_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Document Date"
+	},
+	"classification": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Classification"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"laws_and_regs": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "Laws and Regulations Cited"
+	},
+	"precedents": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Precedents Cited"
+	}
+    }
+}
