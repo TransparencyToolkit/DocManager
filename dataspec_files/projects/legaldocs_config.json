@@ -1,13 +1,13 @@
 {
   "display_details": {
     "title": "USA v. WikiLeaks",
-    "theme": "default",
-    "favicon": "tt-favicon.ico",
-    "logo": "tt-logo.png",
+    "theme": "couragewl",
+    "favicon": "favicon.png",
+    "logo": "logo.png",
     "info_links": {
-	"Credits": "/credits/",
-	"Advanced Search": "/advancedsearch/",
-	"Courage Foundation": "https://couragefound.org"
+	  "Credits": "/credits/",
+	  "Advanced Search": "/advancedsearch/",
+	  "Courage Foundation": "https://couragefound.org"
     }
   },
   "data_source_details": [

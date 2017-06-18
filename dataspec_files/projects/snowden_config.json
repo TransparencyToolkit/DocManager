@@ -5,10 +5,10 @@
     "favicon": "courage-favicon.ico",
     "logo": "courage-logo.png",
     "info_links": {
-	"Description": "/description/",
-	"Advanced Search": "/advancedsearch/",
-	"Courage Foundation": "https://couragefound.org",
-	"Transparency Toolkit": "https://transparencytoolkit.org"
+	  "Description": "/description/",
+	  "Advanced Search": "/advancedsearch/",
+	  "Courage Foundation": "https://couragefound.org",
+	  "Transparency Toolkit": "https://transparencytoolkit.org"
     }
   },
   "data_source_details": [
