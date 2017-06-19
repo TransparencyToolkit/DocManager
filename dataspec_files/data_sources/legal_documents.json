@@ -9,7 +9,7 @@
 		"class_name": "LegalDocs"
     },
     "view_details": {
-		"show_tabs": ["text", "document"],
+	"show_tabs": ["text", "document", "link"],
 		"results_template": "default"	
     },
     "sort_details": {
@@ -37,6 +37,11 @@
 			"human_readable": "Path",
 			"prefix": "https://couragefound.org/legal_docs/"
 		},
+	       "link": {
+		   "display_type": "Link",
+		   "icon": "",
+		   "human_readable": "Link"
+	       },
 		"title": {
 			"display_type": "Title",
 			"icon": "",

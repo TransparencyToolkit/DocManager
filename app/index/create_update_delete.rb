@@ -7,7 +7,7 @@ module CreateUpdateDelete
   # Index an array of items
   def create_items(items, index_name, item_type)
     doc_class = get_model(index_name, item_type)
-    items.each_slice(3000).each do |item_slice|
+    items.each_slice(1).each do |item_slice|
       create_bulk_items(item_slice, index_name, doc_class, item_type)
     end
   end
@@ -36,7 +36,7 @@ module CreateUpdateDelete
      
      # Index the documents in bulk
      Elasticsearch::Model.client = Elasticsearch::Client.new log: true, 
-                                                             request_timeout: 5*60
+                                                             request_timeout: 10*60
      begin
        Elasticsearch::Model.client.bulk(index: index_name,
                                         type: index_name+"_"+item_type.underscore,
