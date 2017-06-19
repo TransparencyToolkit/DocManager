@@ -31,7 +31,7 @@
 			"icon": "",
 			"human_readable": "Text"
 		},
-		"path": {
+		"attachment": {
 			"display_type": "Attachment",
 			"icon": "",
 			"human_readable": "Path",
