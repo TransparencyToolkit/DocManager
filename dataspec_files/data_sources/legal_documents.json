@@ -47,6 +47,11 @@
 			"icon": "document",
 			"human_readable": "Document Type"
 		},
+	        "doc_category": {
+	           "display_type": "Category",
+	           "icon": "document",
+	           "human_readable": "Document Category"
+	         },
 		"people": {
 			"display_type": "Category",
 			"icon": "social",
@@ -65,12 +70,17 @@
 		"court": {
 			"display_type": "Category",
 			"icon": "agencies",
-			"human_readable": "Court"
+			"human_readable": "Originating Organization"
 		},
 		"jurisdiction": {
 			"display_type": "Category",
 			"icon": "countries",
 			"human_readable": "Jurisdiction"
+		},
+	        "country": {
+	            "display_type": "Category",
+	            "icon": "countries",
+	            "human_readable": "Country"
 		},
 		"release_date": {
 			"display_type": "Date",
