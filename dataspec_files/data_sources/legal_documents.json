@@ -13,7 +13,7 @@
 		"results_template": "default"	
     },
     "sort_details": {
-		"sort_field": "release_date",
+		"sort_field": "doc_date",
 		"sort_order": "desc"
     },
     "id_details": {
@@ -23,7 +23,7 @@
     },
     "version_tracking_details": {
 	"fields_to_track": [],
-	"most_recent_timestamp": "release_date"
+	"most_recent_timestamp": "doc_date"
     },
     "fields": {
 		"text": {
