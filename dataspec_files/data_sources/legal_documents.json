@@ -37,6 +37,11 @@
 			"human_readable": "Path",
 			"prefix": "https://couragefound.org/legal_docs/"
 		},
+	     "path": {
+	         "display_type": "None",
+		 "icon": "",
+		 "human_readable": "Path"
+	     },
 	       "link": {
 		   "display_type": "Link",
 		   "icon": "",
