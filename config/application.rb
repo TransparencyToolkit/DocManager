@@ -25,7 +25,7 @@ module DocManager
     Mongoid.load!("config/mongoid.yml")
     config.after_initialize do
       sleep(1)
-#      clear_all("nsadocs")
+#      clear_all("free_press_legal")
       load_all_dataspecs
       sleep(1)
       create_all_indexes

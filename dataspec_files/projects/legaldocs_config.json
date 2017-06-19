@@ -5,7 +5,7 @@
     "favicon": "favicon.png",
     "logo": "logo.png",
     "info_links": {
-	  "Credits": "/credits/",
+	  "Description": "/free_press_legal_description/",
 	  "Advanced Search": "/advancedsearch/",
 	  "Courage Foundation": "https://couragefound.org"
     }
