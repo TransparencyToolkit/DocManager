@@ -49,14 +49,14 @@
 		},
 		"doc_type": {
 			"display_type": "Category",
-			"icon": "document",
+			"icon": "document-topic",
 			"human_readable": "Document Type"
 		},
-	        "doc_category": {
-	           "display_type": "Category",
-	           "icon": "document",
-	           "human_readable": "Document Category"
-	         },
+	    "doc_category": {
+	        "display_type": "Category",
+	        "icon": "document",
+	        "human_readable": "Document Category"
+	    },
 		"people": {
 			"display_type": "Category",
 			"icon": "social",
@@ -69,7 +69,7 @@
 		},
 		"case": {
 			"display_type": "Category",
-			"icon": "work",
+			"icon": "briefcase",
 			"human_readable": "Case"
 		},
 		"court": {
@@ -79,7 +79,7 @@
 		},
 		"jurisdiction": {
 			"display_type": "Category",
-			"icon": "countries",
+			"icon": "map",
 			"human_readable": "Jurisdiction"
 		},
 	        "country": {
