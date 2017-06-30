@@ -16,6 +16,7 @@ class Project
   field :theme, type: String
   field :favicon, type: String
   field :logo, type: String
+  field :other_topbar_links, type: Hash
   field :info_links, type: Hash
   
   # Load in the config file

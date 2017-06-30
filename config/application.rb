@@ -25,6 +25,7 @@ module DocManager
     Mongoid.load!("config/mongoid.yml")
     config.after_initialize do
       sleep(1)
+      Project.delete_all
 #      clear_all("free_press_legal")
       load_all_dataspecs
       sleep(1)

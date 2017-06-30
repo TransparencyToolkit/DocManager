@@ -4,6 +4,9 @@
     "theme": "couragewl",
     "favicon": "favicon.png",
     "logo": "logo.png",
+    "other_topbar_links":{
+	"Suggest Documents": "/document_suggest/"
+    },
     "info_links": {
 	  "Description": "/free_press_legal_description/",
 	  "Advanced Search": "/advancedsearch/",
