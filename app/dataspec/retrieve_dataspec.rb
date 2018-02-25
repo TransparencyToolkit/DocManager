@@ -3,6 +3,8 @@ module RetrieveDataspec
   # Gets the model for the data type
   def get_model(index, doc_type)
     project = get_project(index)
+ #   datasource = project.datasources.where(class_name: doc_type)
+#    binding.pry
     datasource = project.datasources.where(class_name: doc_type).first
     classname = GenerateDocModel.gen_classname(datasource)
     return Kernel.const_get("GenerateDocModel::#{classname}")

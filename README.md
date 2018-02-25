@@ -31,7 +31,6 @@ available and what fields they have are also handled by DocManager.
 
 3. Testing and Similar
 
-* Run Tests: bundle exec rspec
 * Look at DB: mongo doc_manager_development
 
 

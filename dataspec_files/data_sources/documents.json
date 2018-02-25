@@ -97,6 +97,16 @@
 	    "display_type": "Number",
 	    "icon": "",
 	    "human_readable": "Length"
+	},
+	"catalyst_organizations": {
+	    "display_type": "Category",
+	    "icon": "industry",
+	    "human_readable": "Organizations Mentioned"
+	},
+	"catalyst_countries": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Countries Mentioned"
 	}
     }
 }

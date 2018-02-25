@@ -26,7 +26,7 @@ module DocManager
     config.after_initialize do
       sleep(1)
       Project.delete_all
-#      clear_all("free_press_legal")
+      clear_all("nsadocs")
       load_all_dataspecs
       sleep(1)
       create_all_indexes
