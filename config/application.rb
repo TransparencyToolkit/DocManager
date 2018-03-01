@@ -19,14 +19,17 @@ Bundler.require(*Rails.groups)
 
 module DocManager
   class Application < Rails::Application
-    include LoadDataspec
-    include IndexManager
     config.autoload_paths += %W(#{config.root}/app)
     Mongoid.load!("config/mongoid.yml")
     config.after_initialize do
+      Dir.glob('./app/*/*.rb').each { |file| require file }
+      
+      include LoadDataspec
+      include IndexManager
+      
       sleep(1)
       Project.delete_all
-      clear_all("nsadocs")
+      clear_all("archive_test")
       load_all_dataspecs
       sleep(1)
       create_all_indexes

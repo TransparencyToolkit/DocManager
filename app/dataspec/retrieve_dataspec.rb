@@ -4,7 +4,6 @@ module RetrieveDataspec
   def get_model(index, doc_type)
     project = get_project(index)
  #   datasource = project.datasources.where(class_name: doc_type)
-#    binding.pry
     datasource = project.datasources.where(class_name: doc_type).first
     classname = GenerateDocModel.gen_classname(datasource)
     return Kernel.const_get("GenerateDocModel::#{classname}")
@@ -109,7 +108,7 @@ module RetrieveDataspec
   def get_dataspec_for_doc
     # Parse out project, doc, and doc type
     project = get_project(params["index_name"])
-    doc_type = params["doc_type"].gsub("#{params["index_name"]}_", "").camelize
+    doc_type = params["doc_type"].sub("#{params["index_name"]}_", "").camelize
    
     # Return the dataspec
     dataspec = project.datasources.select{|d| d.class_name == doc_type}.first.to_json

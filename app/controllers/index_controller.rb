@@ -1,9 +1,11 @@
+require "socket"
+
 # API calls for creating, updating, and deleting in the elasticsearch index
 class IndexController < ApplicationController
   include CreateUpdateDelete
   include RemoveItems
   skip_before_action :verify_authenticity_token
-
+  
   # Add new items via API call
   def add_items
     # Process params
