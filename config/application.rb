@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require "rails"
+require "rails/all"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -20,7 +21,7 @@ Bundler.require(*Rails.groups)
 module DocManager
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/app)
-    Mongoid.load!("config/mongoid.yml")
+    
     config.after_initialize do
       Dir.glob('./app/*/*.rb').each { |file| require file }
       

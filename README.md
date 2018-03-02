@@ -10,28 +10,24 @@ available and what fields they have are also handled by DocManager.
 * elasticsearch 5.4.0
 * ruby 2.4.1
 * rails 5
-* mongodb
+* postgresql
 
 ## Setup Instructions
 
-1. Install the dependencies
+1. Install the dependencies and configure
 
 * Download elasticsearch (https://www.elastic.co/downloads/elasticsearch)
+* Install postgresql: apt-get install postgresql postgresql-client
 * Download rvm (https://rvm.io/rvm/install)
 * rvm install 2.4.1 and rvm use 2.4.1
 * gem install rails
 * bundle install
+* rake db:create db:migrate
 
 2. Run
 
 * Start elasticsearch (exact method depends on installation method)
-* Create a directory for the mongodb database
-* mongod --dbpath dirname/
 * rails server
-
-3. Testing and Similar
-
-* Look at DB: mongo doc_manager_development
 
 
 # Software and Config File Structure
@@ -76,8 +72,8 @@ source and project objects when requested.
 setting a unique ID (that is consistent across reindexes), tracking different
 versions of the same data, handling different formats of date fields, and
 generally managing messy data. Also handles data deletion.
-* models: Specify the fields that should be saved in mongodb for projects and
-data sources. Most of the management and creation of these sources is
+* models: Specify the fields that should be saved in the database for projects
+and data sources. Most of the management and creation of these sources is
 initially handled in the modules in the dataspec directory.
 * queries: Process and run elasticsearch queries. Includes everything from
 getting the documents to load and showing the total number to actual search

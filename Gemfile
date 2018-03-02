@@ -8,7 +8,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 gem 'puma'
-gem 'mongoid'
+gem 'pg', '~> 0.20'
 
 group :development, :test do
   gem 'pry-byebug'
