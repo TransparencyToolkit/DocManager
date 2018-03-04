@@ -1,7 +1,28 @@
 # API calls for querying the dataspec in elasticsearch
 class DataspecController < ApplicationController
-  skip_before_action :verify_authenticity_token
   include RetrieveDataspec
+  include ModifyDatasource
+
+  def add_field
+    # Parse fields
+    field_name = params["field_name"]
+    field_hash = JSON.parse(params["field_hash"])
+    doc_class = params["doc_class"]
+    project_index = params["project_index"]
+
+    # Add the field
+    add_field_to_source(field_name, field_hash, doc_class, project_index)
+  end
+
+  def remove_field
+    # Parse fields
+    field_name = params["field_name"]
+    doc_class = params["doc_class"]
+    project_index = params["project_index"]
+
+    # Remove the field
+    remove_field_from_source(field_name, doc_class, project_index)
+  end
   
   def get_facet_details_for_project2
     get_facet_details_for_project

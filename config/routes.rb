@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   match 'get_collection_doc_total' => 'query#get_collection_doc_total', as: :query_get_collection_doc_total, via: [:get, :post]
   match 'get_dataspec_for_doc' => 'dataspec#get_dataspec_for_doc2', as: :dataspec_get_dataspec_for_doc, via: [:get, :post]
   match 'get_project_spec' => 'dataspec#get_project_spec2', as: :dataspec_get_project_spec, via: [:get, :post]
+  match 'add_field' => 'dataspec#add_field', as: :dataspec_add_field, via: [:post]
+  match 'remove_field' => 'dataspec#remove_field', as: :dataspec_remove_field, via: [:post]
   match 'get_facet_details_for_project' => 'dataspec#get_facet_details_for_project2', as: :dataspec_get_facet_details_for_project, via: [:get, :post]
   match 'get_dataspecs_for_project' => 'dataspec#get_dataspecs_for_project2', as: :dataspec_get_dataspecs_for_project, via: [:get, :post]
   match 'get_facet_list_divided_by_source' => 'dataspec#get_facet_list_divided_by_source2', as: :dataspec_get_facet_list_divided_by_source, via: [:get, :post]

@@ -13,6 +13,7 @@ gem 'pg', '~> 0.20'
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'awesome_print'
 end
 
 group :development do

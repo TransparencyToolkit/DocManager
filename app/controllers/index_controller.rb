@@ -4,7 +4,6 @@ require "socket"
 class IndexController < ApplicationController
   include CreateUpdateDelete
   include RemoveItems
-  skip_before_action :verify_authenticity_token
   
   # Add new items via API call
   def add_items

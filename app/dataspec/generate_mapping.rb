@@ -32,7 +32,7 @@ module GenerateMapping
 
   # Generate a mapping for a specific field
   def gen_mapping_for_field(field, analyzer_hash)
-    if field[0][0] != "_" # Ignore MongoDB fields
+    if field[0][0] != "_" # Ignore DB fields
       field_name = field[0].to_sym
       type = infer_type(field)
       return attribute field_name, type, mapping: analyzer_hash
