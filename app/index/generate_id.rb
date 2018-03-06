@@ -42,7 +42,7 @@ module GenerateID
     if str.is_a?(Date)
       return str.strftime
     elsif str
-      return str.to_s.gsub("/", "").gsub(" ", "").gsub(",", "").gsub(":", "").gsub(";", "").gsub("'", "").gsub(".", "")
+      return str.to_s.gsub("/", "").gsub(" ", "").gsub(",", "").gsub(":", "").gsub(";", "").gsub("'", "").gsub(".", "").gsub("?", "")
     end
   end
 end

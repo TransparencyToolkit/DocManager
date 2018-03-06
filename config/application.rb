@@ -23,14 +23,14 @@ module DocManager
     config.autoload_paths += %W(#{config.root}/app)
     
     config.after_initialize do
-      Dir.glob('./app/*/*.rb').each { |file| require file }
+      Dir.glob('./app/*/*/*.rb').each { |file| require file }
       
       include LoadDataspec
       include IndexManager
       
       sleep(1)
       Project.delete_all
-      clear_all("archive_test")
+      clear_all("nsadocs")
       load_all_dataspecs
       sleep(1)
       create_all_indexes

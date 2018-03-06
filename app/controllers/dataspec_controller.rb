@@ -24,23 +24,23 @@ class DataspecController < ApplicationController
     remove_field_from_source(field_name, doc_class, project_index)
   end
   
-  def get_facet_details_for_project2
-    get_facet_details_for_project
+  def get_facet_details_for_project
+    render json: get_facet_details
   end
 
-  def get_project_spec2
-    get_project_spec
+  def get_project_spec
+    render json: project_spec
   end
 
-  def get_dataspec_for_doc2
-    get_dataspec_for_doc
+  def get_dataspec_for_doc
+    render json: dataspec_for_doc
   end
 
-  def get_dataspecs_for_project2
-    get_dataspecs_for_project
+  def get_dataspecs_for_project
+    render json: dataspecs_for_project
   end
 
-  def get_facet_list_divided_by_source2
-    get_facet_list_divided_by_source
+  def get_facet_list_divided_by_source
+    render json: facet_list_divided_by_source
   end
 end

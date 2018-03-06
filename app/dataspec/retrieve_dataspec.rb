@@ -21,9 +21,8 @@ module RetrieveDataspec
   end
 
   # Get the spec for the project
-  def get_project_spec
-    project = get_project(params["index_name"])
-    render json: project.to_json
+  def project_spec
+    return get_project(params["index_name"])
   end
 
   def get_dataspec_for_project_source(index_name, item_type)
@@ -32,9 +31,9 @@ module RetrieveDataspec
   end
 
   # Get the dataspects for the project
-  def get_dataspecs_for_project
+  def dataspecs_for_project
     project = get_project(params["index_name"])
-    render json: project.datasources.to_json
+    return project.datasources
   end
 
   # Get the list of facets for the project
@@ -46,7 +45,7 @@ module RetrieveDataspec
   end
 
   # Return JSON with facets divided by source
-  def get_facet_list_divided_by_source
+  def facet_list_divided_by_source
     project = get_project(params["index_name"])
 
     # Get a list of all facets that occur more than once
@@ -55,13 +54,11 @@ module RetrieveDataspec
     overall_facets = get_facet_details.select{|k, v| overall_facet_names.include?(k)}
 
     # Divide the facets by source
-    facet_list = project.datasources.inject({"overall" => overall_facets}) do |list, source|
+    return project.datasources.inject({"overall" => overall_facets}) do |list, source|
       facets_for_source = source.source_fields.select{|k, v| v["display_type"] == "Category"}.except(*overall_facet_names)
       list[source["source_config"]["data_source_details"]["name"]] = facets_for_source
       list
     end
-
-    render json: facet_list
   end
 
   # Get fields for long text
@@ -99,19 +96,13 @@ module RetrieveDataspec
     end
   end
 
-  # Calls get_facet_list and used in controller
-  def get_facet_details_for_project
-    render json: get_facet_details
-  end
-
   # Get the dataspec for the document
-  def get_dataspec_for_doc
+  def dataspec_for_doc
     # Parse out project, doc, and doc type
     project = get_project(params["index_name"])
     doc_type = params["doc_type"].sub("#{params["index_name"]}_", "").camelize
    
     # Return the dataspec
-    dataspec = project.datasources.select{|d| d.class_name == doc_type}.first.to_json
-    render json: dataspec
+    return project.datasources.select{|d| d.class_name == doc_type}.first.to_json
   end
 end
