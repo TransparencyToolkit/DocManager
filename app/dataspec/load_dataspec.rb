@@ -1,3 +1,4 @@
+# Create dataspec by loading JSON file in
 module LoadDataspec
   # Load in all the dataspecs
   def load_all_dataspecs
@@ -35,7 +36,7 @@ module LoadDataspec
   # Create a new project
   def create_project(path)
     project = Project.create
-    project.parse_config(path)
+    project.parse_config(File.read(path))
     project.save
     return project
   end

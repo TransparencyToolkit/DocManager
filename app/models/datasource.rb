@@ -5,9 +5,9 @@ class Datasource < ApplicationRecord
   belongs_to :project
 
   # Load in the config file
-  def parse_config(file)
-    source_config = JSON.parse(File.read(file))
-    self.source_config = JSON.parse(File.read(file))
+  def parse_config(config_json)
+    source_config = JSON.parse(config_json)
+    self.source_config = JSON.parse(config_json)
     load_fields(source_config["data_source_details"])
     load_fields(source_config["index_details"])
     load_fields(source_config["sort_details"])
