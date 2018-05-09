@@ -9,6 +9,7 @@ end
 gem 'rails', '~> 5.2.0'
 gem 'puma'
 gem 'pg', '~> 0.20'
+gem 'bootsnap'
 
 group :development, :test do
   gem 'pry-byebug'

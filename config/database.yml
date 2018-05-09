@@ -1,15 +1,16 @@
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: transparency
+  pool: 5
+  username: transparency
+  password: b2aa167120c96770c82b18c5c0460795
+
 development:
   adapter: postgresql
   encoding: unicode
-  database: doc_manager_development
+  database: transparency
   pool: 5
-  username: postgres
-  password:
-
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: doc_manager_test
-  pool: 5
-  username: postgres
-  password: 
+  username: transparency
+  password: b2aa167120c96770c82b18c5c0460795
