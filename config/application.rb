@@ -29,11 +29,13 @@ module DocManager
       include IndexManager
       
       sleep(1)
-      Project.delete_all if Project.table_exists?
-#      clear_all("nsadocs")
-      load_all_dataspecs
-      sleep(1)
-      create_all_indexes
+      if Project.table_exists?
+        Project.delete_all
+        #      clear_all("nsadocs")
+        load_all_dataspecs
+        sleep(1)
+        create_all_indexes
+      end
     end
   end
 end
