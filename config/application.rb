@@ -29,7 +29,7 @@ module DocManager
       include IndexManager
       
       sleep(1)
-      Project.delete_all if Project.all.length > 0
+      Project.delete_all if Project.table_exists?
 #      clear_all("nsadocs")
       load_all_dataspecs
       sleep(1)
