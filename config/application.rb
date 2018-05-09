@@ -29,8 +29,8 @@ module DocManager
       include IndexManager
       
       sleep(1)
-      Project.delete_all
-      clear_all("nsadocs")
+      Project.delete_all if Project.all.length > 0
+#      clear_all("nsadocs")
       load_all_dataspecs
       sleep(1)
       create_all_indexes
