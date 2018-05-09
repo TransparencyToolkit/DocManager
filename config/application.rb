@@ -23,7 +23,7 @@ module DocManager
     config.autoload_paths += %W(#{config.root}/app)
     
     config.after_initialize do
-      Dir.glob('./app/*/*/*.rb').each { |file| require file }
+      Dir[Rails.root.join('app', '{*/*/*}')].each { |file| require file }
       
       include LoadDataspec
       include IndexManager
