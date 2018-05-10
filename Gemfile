@@ -15,6 +15,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'awesome_print'
+  gem 'method_source'
 end
 
 group :development do

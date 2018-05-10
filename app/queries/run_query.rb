@@ -59,7 +59,7 @@ module RunQuery
   def get_return_size
     # Set return count to 1 if it should only run once for the query
     only_run_once = ["total_docs", "num_docs_in_collection", "single_doc", "index_page", "search_query_display", "term_vector_query"]
-    return 1 if only_run_once.include?(@query_method)
+    return nil if only_run_once.include?(@query_method)
 
     # Otherwise, calculate based on the total num of documents
     total = query_retry(0) {total_doc_count.call}
@@ -69,9 +69,10 @@ module RunQuery
   # Runs all queries generated
   def query_elastic(query_block, *args)
     docs = Array.new
-
+    
     # Get the documents in chunks if needed
-    if @return_count == 1
+    if @return_count == nil
+      @return_count = 1
       docs = query_retry(0) { query_block.call }
     else
       @return_count.times do |i|
