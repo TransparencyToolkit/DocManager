@@ -11,8 +11,15 @@ module IndexQuery
     query_hash = {from: start, size: 30, aggs: facet_query}
 
     # Sort responses in some circumstances
-    if !sources.first.sort_field.empty? && sources.length == 1
-      query_hash[:sort] = {"#{sources.first.sort_field}" => {order: sources.first.sort_order, unmapped_type: "date"}}
+    if !sources.first.sort_field.empty?
+      sort_field_type = sources.first.source_fields[sources.first.sort_field]["display_type"]
+    
+      # Sort by date or category
+      if sort_field_type == "Date"
+        query_hash[:sort] = {"#{sources.first.sort_field}" => {order: sources.first.sort_order, unmapped_type: "date"}}
+      elsif sort_field_type == "Category"
+        query_hash[:sort] = {"#{sources.first.sort_field}.keyword" => {order: sources.first.sort_order}}
+      end
     end
     
     return lambda do 
