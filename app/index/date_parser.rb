@@ -29,7 +29,7 @@ module DateParser
   # Blank dates that are unknown or present
   def handle_unknown_present_date(date)
     dates_to_blank = ["Date unknown", "Unknown", "nodate", "0000-00-00 00:00:00",
-                      "Present", "Current", "Gegenwart"]
+                      "Present", "Current", "Gegenwart", "None"]
 
     # Check if date field includes any of the items in dates_to_blank array, and return nil if so
     dates_to_blank.any?{|to_blank| !date.is_a?(Date) && date.to_s.include?(to_blank)} ? (return nil) : (return date)
