@@ -12,6 +12,7 @@ module RunQuery
   include NilQuery
   include RangeQuery
   include TermVectorQuery
+  include ChildDocQuery
  
   def query_docs(query_method, *args)
     # Get models for index
@@ -52,6 +53,8 @@ module RunQuery
       return range_query_catalyst(*args)
     when "term_vector_query"
       return term_vector_catalyst(*args)
+    when "child_doc"
+      return find_children(*args)
     end
   end
 

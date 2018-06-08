@@ -24,6 +24,30 @@ class QueryController < ApplicationController
     render json: query_docs("single_doc", doc_id)
   end
 
+  # Get documents associated with a document
+  def get_child_documents
+    # Parse parameters
+    doc_id = params["doc_id"]
+    link_field = params["field"]
+    
+    # Query the document
+    child_docs = query_docs("child_doc", doc_id, link_field).select{|c| c["_id"] != doc_id}
+
+    # Map the child documents to be [id, title] for display
+    remapped_children =  child_docs.map do |child|
+      # Get the title field
+      project = get_project(params["index_name"])
+      doc_type = child["_type"].sub("#{params["index_name"]}_", "").camelize
+      dataspec = project.datasources.select{|d| d.class_name == doc_type}
+      title_field = dataspec.first.source_fields.select{|k,v| v["display_type"] == "Title"}.first[0]
+
+      doc_title = child["_source"][title_field].strip.lstrip
+      doc_title = child["_id"] if doc_title.empty?
+      [child["_id"], doc_title]
+    end
+    render json: remapped_children
+  end
+
   # Parse the params for the search query
   def run_search_query
     # Parse parameters

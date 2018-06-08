@@ -5,7 +5,7 @@ production:
   database: transparency
   pool: 5
   username: transparency
-  password: b2aa167120c96770c82b18c5c0460795
+  password: 41149952198542de91f8a3d9771feb32
 
 development:
   adapter: postgresql
@@ -13,4 +13,4 @@ development:
   database: transparency
   pool: 5
   username: transparency
-  password: b2aa167120c96770c82b18c5c0460795
+  password: 41149952198542de91f8a3d9771feb32

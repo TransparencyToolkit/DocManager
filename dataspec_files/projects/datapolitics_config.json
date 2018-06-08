@@ -1,0 +1,21 @@
+{
+  "display_details": {
+      "title": "DataPolitics",
+      "theme": "default",
+      "favicon": "tt-favicon.ico",
+      "logo": "tt-logo.png",
+      "other_topbar_links":{
+	  "Suggest Companies to Add": "/datapolitics_suggest/"
+      },
+      "info_links": {
+	  "Description": "/datapolitics_description/",
+	  "Web Foundation": "https://webfoundation.org/"
+      }
+  },
+    "data_source_details": [
+	"dataspec_files/data_sources/datapolitics_news.json",
+	"dataspec_files/data_sources/datapolitics_brochures.json",
+	"dataspec_files/data_sources/datapolitics_companies.json"
+    ],
+    "index_name": "datapolitics"
+}

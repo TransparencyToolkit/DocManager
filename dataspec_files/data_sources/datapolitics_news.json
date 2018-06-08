@@ -1,0 +1,70 @@
+{
+    "data_source_details": {
+	"name": "News",
+	"description": "Datapolitics News"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "DpNews"
+    },
+    "view_details": {
+	"show_tabs": ["text", "link"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "document_type",
+	"sort_order": "asc"
+    },
+    "id_details": {
+	"id_field": "doc_link",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": ""
+    },
+    "fields": {
+	"story_title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"doc_link": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Doc Link"
+	},
+	"article_text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"authors": {
+	    "display_type": "Category",
+	    "icon": "user",
+	    "human_readable": "Authors"
+	},
+	"associated_companies": {
+	    "display_type": "Category",
+	    "icon": "building",
+	    "human_readable": "Companies"
+	},
+	"article_keywords": {
+	    "display_type": "Category",
+	    "icon": "survey",
+	    "human_readable": "Keywords"
+	},
+	"publish_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Publication Date"
+	},
+	"document_type": {
+	    "display_type": "Category",
+	    "icon": "document",
+	    "human_readable": "Document Type"
+	}
+	
+    }
+}

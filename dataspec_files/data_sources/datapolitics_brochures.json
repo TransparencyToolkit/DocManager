@@ -1,0 +1,65 @@
+{
+    "data_source_details": {
+	"name": "Document",
+	"description": "Datapolitics Brochures"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "DpDocument"
+    },
+    "view_details": {
+	"show_tabs": ["text", "document", "link"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "document_type",
+	"sort_order": "asc"
+    },
+    "id_details": {
+	"id_field": "doc_link",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": ""
+    },
+    "fields": {
+	"brochure_title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"doc_link": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "Doc Link"
+	},
+	"brochure_text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"doc_path": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "File",
+	    "prefix": "https://transparencytoolkit.org/datapolitics/docs/"
+	},
+	"associated_companies": {
+	    "display_type": "Category",
+	    "icon": "building",
+	    "human_readable": "Companies"
+	},
+	"web_address": {
+	    "display_type": "Link",
+	    "icon": "building",
+	    "human_readable": "Web Address"
+	},
+	"document_type": {
+	    "display_type": "Category",
+	    "icon": "document",
+	    "human_readable": "Document Type"
+	}
+    }
+}

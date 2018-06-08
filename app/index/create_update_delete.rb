@@ -33,7 +33,7 @@ module CreateUpdateDelete
        {index: {_id: processed_fields[:id], 
                 data: processed_fields}}
      end
-     
+    
      # Index the documents in bulk
      Elasticsearch::Model.client = Elasticsearch::Client.new log: true, 
                                                              request_timeout: 10*60

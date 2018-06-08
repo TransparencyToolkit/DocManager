@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   match 'get_all_docs' => 'query#get_all_docs', as: :query_get_all_docs, via: [:get, :post]
   match 'get_nil_docs' => 'query#get_nil_docs', as: :query_get_nil_docs, via: [:get, :post]
   match 'get_term_vector' => 'query#get_term_vector', as: :query_get_term_vector, via: [:get, :post]
+  match 'get_child_documents' => 'query#get_child_documents', as: :query_get_child_documents, via: [:get, :post]
 end

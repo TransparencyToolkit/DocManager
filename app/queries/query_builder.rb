@@ -13,7 +13,7 @@ module QueryBuilder
     # Get the facets to load and things to highlight
     aggs_hash = gen_aggs_query(project_index)
     highlight_fields = build_highlight_query(project_index, search_query)
-
+    
     # Finish building query
     return {from: start_offset, size: 30, query: combined_query, aggs: aggs_hash,
             highlight: { pre_tags: ["<b class='is_highlighted'>"], post_tags: ["</b>"], fields: highlight_fields}}
@@ -80,7 +80,7 @@ module QueryBuilder
   # Generate aggregations query for sidebar
   def gen_aggs_query(index_name)
     facets = get_facet_list(index_name)
-
+    
     # Make query hash
     return facets.inject({}) do |h, field|
       h[field.to_sym] = {terms: {field: field+".keyword", size: 500}}

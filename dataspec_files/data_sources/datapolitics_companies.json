@@ -1,0 +1,126 @@
+{
+    "data_source_details": {
+	"name": "Company",
+	"description": "Datapolitics Companies"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "DpCompanies"
+    },
+    "view_details": {
+	"show_tabs": ["text", "link"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "document_type",
+	"sort_order": "asc"
+    },
+    "id_details": {
+	"id_field": "name",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": ""
+    },
+    "fields": {
+	"name": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Name"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"office_city": {
+	    "display_type": "Category",
+	    "icon": "geopoint",
+	    "human_readable": "City"
+	},
+	"office_country": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Country"
+	},
+	"website": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Website"
+	},
+	"twitter": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Twitter"
+	},
+	"facebook": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Facebook"
+	},
+	"linkedin": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "LinkedIn"
+	},
+	"part_of_pipeline": {
+	    "display_type": "Category",
+	    "icon": "analysis",
+	    "human_readable": "Part of Process"
+	},
+	"products_services_category": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Services"
+	},
+	"targeting_methods": {
+	    "display_type": "Category",
+	    "icon": "codewords",
+	    "human_readable": "Targeting Methods"
+	},
+	"data_sources": {
+	    "display_type": "Category",
+	    "icon": "research",
+	    "human_readable": "Data Used"
+	},
+	"customer_country": {
+	    "display_type": "Category",
+	    "icon": "map",
+	    "human_readable": "Countries Worked In"
+	},
+	"known_customers": {
+	    "display_type": "Category",
+	    "icon": "money",
+	    "human_readable": "Customers"
+	},
+	"associated_people": {
+	    "display_type": "Category",
+	    "icon": "social",
+	    "human_readable": "People Involved"
+	},
+	"affiliated_companies": {
+	    "display_type": "Category",
+	    "icon": "distributed",
+	    "human_readable": "Associated Companies"
+	},
+	"oc_entities": {
+	    "display_type": "Named Link",
+	    "icon": "",
+	    "human_readable": "Legal Entities"
+	},
+	"associated_companies": {
+	    "display_type": "Child Document Link",
+	    "associated_doc_label": "Associated Documents",
+	    "icon": "building",
+	    "human_readable": "Company"
+	},
+	"document_type": {
+	    "display_type": "Category",
+	    "icon": "document",
+	    "human_readable": "Document Type"
+	}
+	
+    }
+}
