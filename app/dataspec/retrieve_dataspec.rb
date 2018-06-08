@@ -52,11 +52,11 @@ module RetrieveDataspec
     all_facets = get_facet_list(params["index_name"])
     overall_facet_names = all_facets.select{|facet| all_facets.count(facet) > 1}.uniq
     overall_facets = get_facet_details.select{|k, v| overall_facet_names.include?(k)}
-
+    
     # Divide the facets by source
     return project.datasources.inject({"overall" => overall_facets}) do |list, source|
       facets_for_source = source.source_fields.select{|k, v| v["display_type"] == "Category"}.except(*overall_facet_names)
-      list[source["source_config"]["data_source_details"]["name"]] = facets_for_source
+      list[source["name"]] = facets_for_source
       list
     end
   end
