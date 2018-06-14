@@ -1,15 +1,15 @@
 {
     "data_source_details": {
 	"name": "Document",
-	"description": "Datapolitics Brochures"
+	"description": "Datapolitics Documents"
     },
     "index_details": {
 	"mapping": "english",
 	"class_name": "DpDocument"
     },
     "view_details": {
-	"show_tabs": ["text", "document", "link"],
-	"results_template": "default"	
+	"show_tabs": ["document", "source", "link"],
+	"results_template": "default"
     },
     "sort_details": {
 	"sort_field": "document_type",

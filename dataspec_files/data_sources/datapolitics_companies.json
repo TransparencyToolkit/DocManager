@@ -8,8 +8,8 @@
 	"class_name": "DpCompanies"
     },
     "view_details": {
-	"show_tabs": ["text", "link"],
-	"results_template": "default"	
+	"show_tabs": ["company", "link"],
+	"results_template": "default"
     },
     "sort_details": {
 	"sort_field": "document_type",
