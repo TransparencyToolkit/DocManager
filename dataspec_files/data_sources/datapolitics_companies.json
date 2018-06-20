@@ -8,7 +8,7 @@
 	"class_name": "DpCompanies"
     },
     "view_details": {
-	"show_tabs": ["company", "link"],
+	"show_tabs": ["company"],
 	"results_template": "default"
     },
     "sort_details": {
@@ -46,22 +46,22 @@
 	    "human_readable": "Country"
 	},
 	"website": {
-	    "display_type": "Link",
+	    "display_type": "Related Link",
 	    "icon": "",
 	    "human_readable": "Website"
 	},
 	"twitter": {
-	    "display_type": "Link",
+	    "display_type": "Related Link",
 	    "icon": "",
 	    "human_readable": "Twitter"
 	},
 	"facebook": {
-	    "display_type": "Link",
+	    "display_type": "Related Link",
 	    "icon": "",
 	    "human_readable": "Facebook"
 	},
 	"linkedin": {
-	    "display_type": "Link",
+	    "display_type": "Related Link",
 	    "icon": "",
 	    "human_readable": "LinkedIn"
 	},
@@ -77,7 +77,7 @@
 	},
 	"targeting_methods": {
 	    "display_type": "Category",
-	    "icon": "codewords",
+	    "icon": "targeting",
 	    "human_readable": "Targeting Methods"
 	},
 	"data_sources": {
@@ -105,7 +105,7 @@
 	    "icon": "distributed",
 	    "human_readable": "Associated Companies"
 	},
-	"oc_entities": {
+    "oc_entities": {
 	    "display_type": "Named Link",
 	    "icon": "",
 	    "human_readable": "Legal Entities"
@@ -121,6 +121,5 @@
 	    "icon": "document",
 	    "human_readable": "Document Type"
 	}
-	
     }
 }

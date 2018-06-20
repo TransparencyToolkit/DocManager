@@ -8,7 +8,7 @@
 	"class_name": "DpNews"
     },
     "view_details": {
-	"show_tabs": ["article", "link"],
+	"show_tabs": ["article"],
 	"results_template": "default"
     },
     "sort_details": {
@@ -31,9 +31,9 @@
 	    "human_readable": "Title"
 	},
 	"doc_link": {
-	    "display_type": "Link",
+	    "display_type": "Source Link",
 	    "icon": "",
-	    "human_readable": "Doc Link"
+	    "human_readable": "Source URL"
 	},
 	"article_text": {
 	    "display_type": "Long Text",
@@ -65,6 +65,5 @@
 	    "icon": "document",
 	    "human_readable": "Document Type"
 	}
-	
     }
 }
