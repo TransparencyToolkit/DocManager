@@ -16,12 +16,12 @@ module GenerateID
   def generate_id(doc_data, index_name, item_type)
     datasource = get_dataspec_for_project_source(index_name, item_type)
     id = get_secondary_id(datasource, doc_data, get_primary_id(datasource, doc_data), index_name, item_type)
-    return add_doc_type(index_name, item_type, id)
+    return add_doc_type(index_name, item_type, id, datasource)
   end
 
   # Add the document type/index to the ID
-  def add_doc_type(index_name, item_type, id)
-    "#{id}_#{index_name}_#{item_type.underscore}"
+  def add_doc_type(index_name, item_type, id, datasource)
+    "#{id.gsub(datasource.trim_from_id[0], "")}_#{index_name}_#{item_type.underscore}"
   end
 
   # Return the primary ID
@@ -42,7 +42,7 @@ module GenerateID
     if str.is_a?(Date)
       return str.strftime
     elsif str
-      return str.to_s.gsub("/", "").gsub(" ", "").gsub(",", "").gsub(":", "").gsub(";", "").gsub("'", "").gsub(".", "").gsub("?", "")
+      return str.to_s.gsub("/", "").gsub(" ", "").gsub(",", "").gsub(":", "").gsub(";", "").gsub("'", "").gsub(".", "").gsub("?", "").gsub("(", "").gsub(")", "")
     end
   end
 end
