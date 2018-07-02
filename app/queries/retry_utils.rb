@@ -5,11 +5,11 @@ module RetryUtils
       return save_block.call
     rescue # Retry a few times
       sleep(2*i+1)
-      if i < 10
+      if i < 5
         i += 1
         query_retry(i, &save_block)
       else # Retried too many times
-        binding.pry
+      #  binding.pry
       end
     end
   end
