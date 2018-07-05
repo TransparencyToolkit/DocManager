@@ -21,7 +21,7 @@ module GenerateID
 
   # Add the document type/index to the ID
   def add_doc_type(index_name, item_type, id, datasource)
-    "#{id.gsub(datasource.trim_from_id[0], "")}_#{index_name}_#{item_type.underscore}"
+    return "#{id.gsub(datasource.trim_from_id[0].to_s, "")}_#{index_name}_#{item_type.underscore}"
   end
 
   # Return the primary ID
