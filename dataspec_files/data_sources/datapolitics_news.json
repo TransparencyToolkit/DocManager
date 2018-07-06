@@ -8,7 +8,7 @@
 	"class_name": "DpNews"
     },
     "view_details": {
-	"show_tabs": ["article"],
+	"show_tabs": ["article", "source"],
 	"results_template": "default"
     },
     "sort_details": {
@@ -59,6 +59,12 @@
 	    "display_type": "Date",
 	    "icon": "",
 	    "human_readable": "Publication Date"
+	},
+	"doc_path": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "File",
+	    "prefix": "https://transparencytoolkit.org/DataPolitics/documents/"
 	},
 	"document_type": {
 	    "display_type": "Category",

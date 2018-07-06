@@ -8,7 +8,7 @@
 	"class_name": "DpDocument"
     },
     "view_details": {
-	"show_tabs": ["document", "source", "link"],
+	"show_tabs": ["source", "document", "link"],
 	"results_template": "default"
     },
     "sort_details": {
