@@ -97,6 +97,11 @@
 	    "display_type": "Number",
 	    "icon": "",
 	    "human_readable": "Length"
+	},
+	"ocr_status": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "OCR Status"
 	}
     }
 }
