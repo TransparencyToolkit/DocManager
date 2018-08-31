@@ -1,9 +1,9 @@
 {
   "display_details": {
       "title": "DataPolitics",
-      "theme": "neondata",
-      "favicon": "favicon.png",
-      "logo": "logo.png",
+      "theme": "default",
+      "favicon": "tt-favicon.png",
+      "logo": "tt-logo.png",
       "other_topbar_links":{
 	  "Suggest Companies to Add": "/datapolitics_suggest/"
       },
