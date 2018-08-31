@@ -21,7 +21,8 @@
     "id_details": {
 	"id_field": "profile_url",
 	"secondary_id": ["company", "title", "start_date"],
-	"trim_from_id": ["linkedin.com/pub"]
+	"trim_from_id": ["linkedin.com/pub"],
+	"categories_to_merge_across_versions": []
     },
     "version_tracking_details": {
 	"fields_to_track": ["description", "summary", "title"],

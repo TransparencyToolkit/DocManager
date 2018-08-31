@@ -24,7 +24,8 @@
     },
     "version_tracking_details": {
 	"fields_to_track": [],
-	"most_recent_timestamp": "time_collected"
+	"most_recent_timestamp": "time_collected",
+	"categories_to_merge_across_versions": []
     },
     "fields": {
 	"tweet_text": {

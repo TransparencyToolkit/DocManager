@@ -14,6 +14,10 @@ module GenerateID
   
   # Generate the ID
   def generate_id(doc_data, index_name, item_type)
+    # Return ID if exists (as with editable fields)
+    return doc_data["id"] if doc_data["id"]
+
+    # Generate ID if needed
     datasource = get_dataspec_for_project_source(index_name, item_type)
     id = get_secondary_id(datasource, doc_data, get_primary_id(datasource, doc_data), index_name, item_type)
     id = add_doc_type(index_name, item_type, id, datasource)

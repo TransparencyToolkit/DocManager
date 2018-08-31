@@ -32,7 +32,7 @@ module CreateUpdateDelete
 
   # Remove fields not in the dataspec before indexing
   def remove_unspecified_fields(doc, datasource)
-    allowed_fields = datasource.source_fields.keys
+    allowed_fields = datasource.source_fields.keys+["id"]
     return doc.keep_if{|k, v| allowed_fields.include?(k)}
   end
   

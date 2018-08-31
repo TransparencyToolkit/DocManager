@@ -24,7 +24,8 @@
     },
     "version_tracking_details": {
 	"fields_to_track": ["username", "description"],
-	"most_recent_timestamp": "created_at"
+	"most_recent_timestamp": "created_at",
+	"categories_to_merge_across_versions": []
     },
     "fields": {
 	"id": {

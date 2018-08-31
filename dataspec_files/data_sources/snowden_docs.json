@@ -22,7 +22,8 @@
     },
     "version_tracking_details": {
 	"fields_to_track": [],
-	"most_recent_timestamp": "released_date"
+	"most_recent_timestamp": "released_date",
+	"categories_to_merge_across_versions": []
     },
     "fields": {
 	"released_date": {
