@@ -26,12 +26,14 @@ class CreateProjectsAndSources < ActiveRecord::Migration[5.1]
       t.string :sort_field
       t.string :sort_order
       t.string :thread_id_field
+      t.text :never_item_fields, array: true
       t.text :show_tabs, array: true
       t.string :results_template
       t.string :id_field
       t.text :secondary_id, array: true
       t.text :trim_from_id, array: true
       t.text :fields_to_track, array: true
+      t.text :categories_to_merge_across_versions, array: true
       t.string :most_recent_timestamp
       t.json :source_fields
     end

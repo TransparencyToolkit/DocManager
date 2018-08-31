@@ -31,7 +31,7 @@ module DocManager
       sleep(1)
       if Project.table_exists?
         Project.delete_all
-#              clear_all("datapolitics")
+              clear_all("icwatch")
         load_all_dataspecs
         sleep(1)
         create_all_indexes

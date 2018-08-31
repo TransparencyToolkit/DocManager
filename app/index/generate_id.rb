@@ -16,7 +16,17 @@ module GenerateID
   def generate_id(doc_data, index_name, item_type)
     datasource = get_dataspec_for_project_source(index_name, item_type)
     id = get_secondary_id(datasource, doc_data, get_primary_id(datasource, doc_data), index_name, item_type)
-    return add_doc_type(index_name, item_type, id, datasource)
+    id = add_doc_type(index_name, item_type, id, datasource)
+    return trim_id(id)
+  end
+
+  # Trim ID if needed
+  def trim_id(id)
+    if id.length > 500
+      return id[0...500]
+    else
+      return id
+    end
   end
 
   # Add the document type/index to the ID

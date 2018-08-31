@@ -1,0 +1,124 @@
+{
+    "data_source_details": {
+	"name": "FBI/DHS Hack",
+	"description": "FBI/DHS Hack",
+	"icon": "icon-classification",
+	"input_params": {"search_query": "string"}
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "Fbidhs"
+    },
+    "view_details": {
+	"show_tabs": ["text"],
+	"results_template": "resume"
+    },
+    "sort_details": {
+	"sort_field": "start_date",
+	"sort_order": "desc",
+	"thread_id_field": "id_field",
+	"never_item_fields": []
+    },
+    "id_details": {
+	"id_field": "id_field",
+	"secondary_id": ["company", "job_title", "start_date"],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "start_date",
+	"categories_to_merge_across_versions": []
+    },
+    "fields": {
+        "full_name": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Name"
+	},
+	"company": {
+	    "display_type": "Category",
+	    "icon": "building",
+	    "human_readable": "Company"
+	},
+	"title": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"start_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Start Date"
+	},
+	"end_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "End Date"
+	},
+	"state": {
+	    "display_type": "Category",
+	    "icon": "map",
+	    "human_readable": "State"
+	},
+	"industry": {
+	    "display_type": "Category",
+	    "icon": "progress",
+	    "human_readable": "Industry"
+	},
+	"telephone": {
+	    "display_type": "Shorter Text",
+	    "icon": "telephone",
+	    "human_readable": "Telephone"
+	},
+	"extension": {
+	    "display_type": "Shorter Text",
+	    "icon": "phone-extension",
+	    "human_readable": "Extension"
+	},
+	"fax": {
+	    "display_type": "Shorter Text",
+	    "icon": "fax",
+	    "human_readable": "Fax"
+	},
+	"email": {
+	    "display_type": "Shorter Text",
+	    "icon": "email",
+	    "human_readable": "Email"
+	},
+	"agency": {
+	    "display_type": "Category",
+	    "icon": "agencies",
+	    "human_readable": "Agency"
+	},
+	"id_field": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "ID"
+	},
+	"job_title": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Job Title"
+	},
+	"linkedin": {
+	    "display_type": "Related Link",
+	    "icon": "",
+	    "human_readable": "LinkedIn"
+	},
+	"facebook": {
+	    "display_type": "Related Link",
+	    "icon": "",
+	    "human_readable": "Facebook"
+	},
+	"doc_source": {
+	    "display_type": "Category",
+	    "icon": "analysis",
+	    "human_readable": "Data Source"
+	},
+	"doc_modified": {
+	    "display_type": "Category",
+	    "icon": "modified",
+	    "human_readable": "Modified?"
+	}
+    }
+}
