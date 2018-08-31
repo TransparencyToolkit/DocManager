@@ -1,0 +1,20 @@
+{
+  "display_details": {
+    "title": "ICWATCH",
+    "theme": "default",
+    "favicon": "tt-favicon.ico",
+    "logo": "tt-logo.png",
+    "info_links": {
+	"Description": "https://transparencytoolkit.org/project/icwatch/",
+	"Dataset": "https://file.wikileaks.org/file/icwatch/",
+	"Advanced Search": "/advancedsearch/",
+	"Transparency Toolkit": "https://transparencytoolkit.org"
+    }
+  },
+  "data_source_details": [
+      "dataspec_files/data_sources/icwatch_linkedin.json",
+      "dataspec_files/data_sources/icwatch_indeed.json",
+      "dataspec_files/data_sources/icwatch_fbidhs.json"
+  ],
+  "index_name": "icwatch"
+}

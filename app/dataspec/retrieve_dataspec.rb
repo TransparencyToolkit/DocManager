@@ -39,6 +39,7 @@ module RetrieveDataspec
   # Get the list of facets for the project
   def get_facet_list(index_name)
     project = get_project(index_name)
+    
     project.datasources.inject([]) do |facets, d|
       facets += d.source_fields.select{|k, v| v["display_type"] == "Category"}.map{|k,v| k}
     end
@@ -90,7 +91,7 @@ module RetrieveDataspec
   def get_facet_details
     facet_fields = get_facet_list(params["index_name"])
     project = get_project(params["index_name"])
-
+    
     facet_fields = project.datasources.inject({}) do |facets, d|
       facets.merge(d.source_fields.select{|k, v| v["display_type"] == "Category"})
     end

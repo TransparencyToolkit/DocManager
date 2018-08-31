@@ -10,7 +10,7 @@
 	"class_name": "LoadFiles"
     },
     "view_details": {
-	"show_tabs": ["text", "document"],
+	"show_tabs": ["document", "source"],
 	"results_template": "default"	
     },
     "sort_details": {
@@ -44,7 +44,7 @@
 	},
 	"folders": {
 	    "display_type": "Category",
-	    "icon": "folders",
+	    "icon": "folder",
 	    "human_readable": "Folders"
 	},
 	"full_path": {
@@ -73,11 +73,6 @@
 	    "icon": "work",
 	    "human_readable": "Producer"
 	},
-	"title": {
-	    "display_type": "Short Text",
-	    "icon": "",
-	    "human_readable": "Title"
-	},
 	"subject": {
 	    "display_type": "Short Text",
 	    "icon": "",
@@ -98,15 +93,10 @@
 	    "icon": "",
 	    "human_readable": "Length"
 	},
-	"catalyst_organizations": {
+	"ocr_status": {
 	    "display_type": "Category",
-	    "icon": "industry",
-	    "human_readable": "Organizations Mentioned"
-	},
-	"catalyst_countries": {
-	    "display_type": "Category",
-	    "icon": "countries",
-	    "human_readable": "Countries Mentioned"
+	    "icon": "checkmark",
+	    "human_readable": "OCR Status"
 	}
     }
 }

@@ -1,0 +1,170 @@
+{
+    "data_source_details": {
+	"name": "LinkedIn",
+	"description": "Linkedin",
+	"icon": "icon-linkedin",
+	"input_params": {"search_query": "string"}
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "Linkedin"
+    },
+    "view_details": {
+	"show_tabs": ["text"],
+	"results_template": "resume"
+    },
+    "sort_details": {
+	"sort_field": "start_date",
+	"sort_order": "desc",
+	"thread_id_field": "profile_url",
+	"never_item_fields": ["summary", "pic_path", "skills"]
+    },
+    "id_details": {
+	"id_field": "profile_url",
+	"secondary_id": ["company", "title", "start_date"],
+	"trim_from_id": ["httpwwwlinkedincompub", "httpwwwlinkedincomin", "httpillinkedincompub", "linkedincompub", "linkedincomin"]
+    },
+    "version_tracking_details": {
+	"fields_to_track": ["description", "title", "pic_path"],
+	"most_recent_timestamp": "timestamp",
+	"categories_to_merge_across_versions": ["search_terms", "tools_mentioned", "skills"]
+    },
+    "fields": {
+        "full_name": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Name"
+	},
+	"company": {
+	    "display_type": "Category",
+	    "icon": "building",
+	    "human_readable": "Company"
+	},
+	"title": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Job Title"
+	},
+	"start_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Start Date"
+	},
+	"end_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "End Date"
+	},
+	"location": {
+	    "display_type": "Category",
+	    "icon": "geopoint",
+	    "human_readable": "Location"
+	},
+	"area": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Area"
+	},
+	"industry": {
+	    "display_type": "Category",
+	    "icon": "progress",
+	    "human_readable": "Industry"
+	},
+	"summary": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Summary"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"skills": {
+	    "display_type": "Category",
+	    "icon": "work",
+	    "human_readable": "Skills"
+	},
+	"pic_path": {
+	    "display_type": "Picture",
+	    "icon": "",
+	    "human_readable": "Picture",
+	    "prefix": "https://file.wikileaks.org/file/icwatch-pics/"
+	},
+	"websites": {
+	    "display_type": "Related Link",
+	    "icon": "",
+	    "human_readable": "Websites"
+	},
+	"profile_url": {
+	    "display_type": "Source Link",
+	    "icon": "",
+	    "human_readable": "Profile URL"
+	},
+	"current": {
+	    "display_type": "Category",
+	    "icon": "briefcase",
+	    "human_readable": "Current Position"
+	},
+	"linkedin_company_url": {
+	    "display_type": "Related Link",
+	    "icon": "",
+	    "human_readable": "Company URL"
+	},
+	"url": {
+	    "display_type": "Related Link",
+	    "icon": "",
+	    "human_readable": "URL"
+	},
+	"website": {
+	    "display_type": "Related Link",
+	    "icon": "",
+	    "human_readable": "Website"
+	},
+	"type": {
+	    "display_type": "Category",
+	    "icon": "agencies",
+	    "human_readable": "Type"
+	},
+	"company_size": {
+	    "display_type": "Number",
+	    "icon": "",
+	    "human_readable": "Company Size"
+	},
+	"address": {
+	    "display_type": "Address",
+	    "icon": "",
+	    "human_readable": "Company Address"
+	},
+	"founded": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Founded"
+	},
+	"timestamp": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Timestamp"
+	},
+	"search_terms": {
+	    "display_type": "Category",
+	    "icon": "terms",
+	    "human_readable": "Search Terms"
+	},
+	"tools_mentioned": {
+	    "display_type": "Category",
+	    "icon": "survey",
+	    "human_readable": "Tools Mentioned"
+	},
+	"doc_source": {
+	    "display_type": "Category",
+	    "icon": "analysis",
+	    "human_readable": "Data Source"
+	},
+	"version_changed": {
+	    "display_type": "Category",
+	    "icon": "modified",
+	    "human_readable": "Modified?"
+	}
+    }
+}

@@ -3,11 +3,12 @@ module CreateUpdateDelete
   include GenerateID
   include DateParser
   include VersionTracker
+  include RetryUtils
   
   # Index an array of items
   def create_items(items, index_name, item_type)
     doc_class = get_model(index_name, item_type)
-    items.each_slice(1).each do |item_slice|
+    items.each_slice(10000).each do |item_slice|
       create_bulk_items(item_slice, index_name, doc_class, item_type)
     end
   end
@@ -16,20 +17,38 @@ module CreateUpdateDelete
   def process_doc_fields(doc_data, index_name, doc_class, item_type)
     datasource = get_dataspec_for_project_source(index_name, item_type)
 
+    # Remove fields that shouldn't be in the json
+    doc_data = remove_unspecified_fields(doc_data, datasource)
+    
     # Generate the ID 
     id = generate_id(doc_data, index_name, item_type)
     thread_id = set_thread_id(doc_data, index_name, item_type)
 
     # Add date and track versions
     processed_doc_data = remap_dates(index_name, item_type, doc_data).merge({id: id, thread_id: thread_id})
+    processed_doc_data = remap_blank_to_nil(processed_doc_data)
     return track_versions(processed_doc_data, doc_class, datasource).merge({id: id, thread_id: thread_id})
+  end
+
+  # Remove fields not in the dataspec before indexing
+  def remove_unspecified_fields(doc, datasource)
+    allowed_fields = datasource.source_fields.keys
+    return doc.keep_if{|k, v| allowed_fields.include?(k)}
+  end
+  
+  # Remap blank values to nil
+  def remap_blank_to_nil(processed_doc_data)
+    processed_doc_data.to_a.map do |v|
+      v[1] = nil if v[1].blank?
+      [v[0], v[1]]
+    end.to_h
   end
 
   # Create items in bulk
   def create_bulk_items(items, index_name, doc_class, item_type)
      # Remap the items before indexing them in bulk        
     remapped_items = items.map do |item|
-       processed_fields = process_doc_fields(item, index_name, doc_class, item_type)
+      processed_fields = process_doc_fields(item, index_name, doc_class, item_type)
        {index: {_id: processed_fields[:id], 
                 data: processed_fields}}
      end
@@ -38,9 +57,9 @@ module CreateUpdateDelete
      Elasticsearch::Model.client = Elasticsearch::Client.new log: true, 
                                                              request_timeout: 10*60
      begin
-       Elasticsearch::Model.client.bulk(index: index_name,
+       query_retry(0) { Elasticsearch::Model.client.bulk(index: index_name,
                                         type: index_name+"_"+item_type.underscore,
-                                        body: remapped_items)
+                                        body: remapped_items) }
      rescue
        binding.pry
      end

@@ -1,0 +1,129 @@
+{
+    "data_source_details": {
+	"name": "Indeed",
+	"description": "Indeed",
+	"icon": "icon-indeed",
+	"input_params": {"search_query": "string"}
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "Indeed"
+    },
+    "view_details": {
+	"show_tabs": ["text"],
+	"results_template": "resume"
+    },
+    "sort_details": {
+	"sort_field": "start_date",
+	"sort_order": "desc",
+	"thread_id_field": "url",
+	"never_item_fields": ["summary", "additional_info", "skills", "current_title"]
+    },
+    "id_details": {
+	"id_field": "url",
+	"secondary_id": ["company", "job_title", "start_date"],
+	"trim_from_id": ["httpindeedcom"]
+    },
+    "version_tracking_details": {
+	"fields_to_track": ["job_description", "summary", "job_title", "current_title"],
+	"most_recent_timestamp": "time_scraped",
+	"categories_to_merge_across_versions": ["search_terms", "tools_mentioned"]
+    },
+    "fields": {
+        "name": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Name"
+	},
+	"company": {
+	    "display_type": "Category",
+	    "icon": "building",
+	    "human_readable": "Company"
+	},
+	"job_title": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Job Title"
+	},
+	"start_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Start Date"
+	},
+	"end_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "End Date"
+	},
+	"location": {
+	    "display_type": "Category",
+	    "icon": "geopoint",
+	    "human_readable": "Location"
+	},
+	"company_location": {
+	    "display_type": "Category",
+	    "icon": "industry",
+	    "human_readable": "Company Location"
+	},
+	"summary": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Summary"
+	},
+	"job_description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"skills_text": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Skills"
+	},
+	"additional_info": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Additional Info"
+	},
+	"url": {
+	    "display_type": "Source Link",
+	    "icon": "",
+	    "human_readable": "Profile URL"
+	},
+	"current_title": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Current Title"
+	},
+	"time_scraped": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Timestamp"
+	},
+	"search_terms": {
+	    "display_type": "Category",
+	    "icon": "terms",
+	    "human_readable": "Search Terms"
+	},
+	"tools_mentioned": {
+	    "display_type": "Category",
+	    "icon": "survey",
+	    "human_readable": "Tools Mentioned"
+	},
+	"doc_source": {
+	    "display_type": "Category",
+	    "icon": "analysis",
+	    "human_readable": "Data Source"
+	},
+	"version_changed": {
+	    "display_type": "Category",
+	    "icon": "modified",
+	    "human_readable": "Modified?"
+	},
+	"last_updated": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Last Updated"
+	}
+    }
+}
