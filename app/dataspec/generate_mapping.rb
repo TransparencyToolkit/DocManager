@@ -12,21 +12,27 @@ module GenerateMapping
 
   # Generate source mapping for analyzer
   def generate_analyzer_hash(source)
-    analyzer_hash = {analyzer: source.mapping, term_vector: 'with_positions_offsets_payloads'}
+    analyzer_hash = {analyzer: source.mapping, term_vector: 'with_positions_offsets_payloads', store: true}
     return analyzer_hash
   end
 
   # Infer the field type
-  def infer_type(field)
+  def infer_type(field, analyzer_hash)
     case field[1]["display_type"]
     when "Short Text", "Tiny Text", "Description", "Long Text", "Title"
-      return String
+      return analyzer_hash.merge({type: "text"})
     when "Date", "DateTime"
-      return Date
-    when "Category", "Link", "Picture"
-      return String
+      return {type: "date"}
+    when "Category", "Link", "Picture", "None"
+      return analyzer_hash.merge({type: "text", fields: {
+                                    keyword: {
+                                      type: "keyword",
+                                      ignore_above: 256
+                                    }}})
     when "Number"
-      return Integer
+      return {type: "long"}
+    else
+      return analyzer_hash
     end
   end
 
@@ -34,8 +40,15 @@ module GenerateMapping
   def gen_mapping_for_field(field, analyzer_hash)
     if field[0][0] != "_" # Ignore DB fields
       field_name = field[0].to_sym
-      type = infer_type(field)
-      return attribute field_name, type, mapping: analyzer_hash
+      analyzer_hash = infer_type(field, analyzer_hash)
+
+      # For doc_versions, it should take an object
+      analyzer_hash = {properties: {}, type: "nested"} if field_name == :doc_versions
+      
+      # Set the mapping for the field
+      mapping do
+        indexes field_name, analyzer_hash 
+      end
     end
   end
 end

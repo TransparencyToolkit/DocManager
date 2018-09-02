@@ -29,7 +29,8 @@ module ENAnalyzer
                      "lowercase",
                      "english_stop",
                      "english_stemmer",
-                     "asciifolding"
+                     "asciifolding",
+                     "type_as_payload"
                     ]
             },
           },

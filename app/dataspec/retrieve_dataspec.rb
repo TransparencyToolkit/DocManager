@@ -1,3 +1,5 @@
+load 'app/dataspec/generate_doc_model.rb'
+
 module RetrieveDataspec
   include GenerateDocModel
   # Gets the model for the data type

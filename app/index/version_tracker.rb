@@ -3,8 +3,11 @@ module VersionTracker
   # Track the versions of the document
   def track_versions(doc, doc_class, datasource)
     # Get doc if it exists
-    already_indexed_doc = doc_class.find(doc[:id]) if doc_class.exists?(doc[:id])
-
+    if doc_class.exists?(doc[:id])
+      client = doc_class.__elasticsearch__.client
+      already_indexed_doc = client.get({ index: doc_class.index_name, id: doc[:id] })["_source"].symbolize_keys
+    end
+    
     # Add version tracking info
     versioned = append_version_to_list(already_indexed_doc, doc, datasource)
     

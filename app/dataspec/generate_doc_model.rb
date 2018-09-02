@@ -33,7 +33,7 @@ module GenerateDocModel
         extend GenerateMapping
         map_all_fields(data_source)
       end
-
+      
       # Set constant and return class
       const_set(classname, new_model)
       return new_model

@@ -13,6 +13,8 @@ require "sprockets/railtie"
 require "rails/test_unit/railtie"
 load "app/dataspec/load_dataspec.rb"
 load "app/index/index_manager.rb"
+load "app/dataspec/retrieve_dataspec.rb"
+load "app/dataspec/generate_doc_model.rb"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -26,12 +28,14 @@ module DocManager
       Dir[Rails.root.join('app', '{*/*/*}')].each { |file| require file }
       
       include LoadDataspec
+      include GenerateDocModel
       include IndexManager
+      include RetrieveDataspec
       
       sleep(1)
       if Project.table_exists?
-        Project.delete_all
-#              clear_all("icwatch")
+#        Project.delete_all
+ #                    clear_all("datapolitics")
         load_all_dataspecs
         sleep(1)
         create_all_indexes

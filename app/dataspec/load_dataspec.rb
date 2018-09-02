@@ -28,7 +28,7 @@ module LoadDataspec
 
   # Update a project if it exists already
   def update_project(found_project, path)
-    updated_project = found_project.parse_config(path)
+    updated_project = found_project.parse_config(File.read(path))
     updated_project.save
     return updated_project
   end

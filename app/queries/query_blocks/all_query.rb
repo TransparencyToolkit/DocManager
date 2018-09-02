@@ -1,6 +1,5 @@
 # Retrieve all documents 
 module AllQuery
-
   # Get all the documents in index
   def query_all
     return lambda do |i|

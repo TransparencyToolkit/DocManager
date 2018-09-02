@@ -1,7 +1,7 @@
 {
   "display_details": {
       "title": "DataPolitics",
-      "theme": "default",
+      "theme": "neondata",
       "favicon": "tt-favicon.png",
       "logo": "tt-logo.png",
       "other_topbar_links":{
