@@ -10,12 +10,13 @@
 	"class_name": "ArchiveTestDoc"
     },
     "view_details": {
-	"show_tabs": ["text", "document"],
+	"show_tabs": ["document", "source"],
 	"results_template": "default"	
     },
     "sort_details": {
 	"sort_field": "date_added",
-	"sort_order": "desc"
+	"sort_order": "desc",
+	"never_item_fields": []
     },
     "id_details": {
 	"id_field": "rel_path",
