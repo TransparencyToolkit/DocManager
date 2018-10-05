@@ -34,8 +34,8 @@ gem 'doc_integrity_check'
 gem 'gpgme'
 
 # Elasticsearch dependencies
-gem 'elasticsearch'
-gem 'elasticsearch-persistence'
-gem 'elasticsearch-rails'
-gem 'elasticsearch-model'
+gem 'elasticsearch', '~> 5'
+gem 'elasticsearch-persistence', '~> 5'
+gem 'elasticsearch-rails', '~> 5'
+gem 'elasticsearch-model', '~> 5'
 

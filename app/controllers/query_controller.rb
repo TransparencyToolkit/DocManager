@@ -10,7 +10,7 @@ class QueryController < ApplicationController
   def get_docs_on_index_page
     # Parse params
     start = params["start"].to_i
-    
+
     # Call query and render
     render json: query_docs("index_page", start)
   end
@@ -29,7 +29,7 @@ class QueryController < ApplicationController
     # Parse parameters
     doc_id = params["doc_id"]
     link_field = params["field"]
-    
+
     # Query the document
     child_docs = query_docs("child_doc", doc_id, link_field).select{|c| c["_id"] != doc_id}
 
@@ -41,7 +41,7 @@ class QueryController < ApplicationController
       dataspec = project.datasources.select{|d| d.class_name == doc_type}
       title_field = dataspec.first.source_fields.select{|k,v| v["display_type"] == "Title"}.first[0]
 
-      doc_title = child["_source"][title_field].strip.lstrip
+      doc_title = child["_source"][title_field].to_s.strip.lstrip
       doc_title = child["_id"] if doc_title.empty?
       [child["_id"], doc_title]
     end
