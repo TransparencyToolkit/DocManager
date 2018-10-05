@@ -13,7 +13,9 @@
     },
     "sort_details": {
 	"sort_field": "document_type",
-	"sort_order": "asc"
+	"sort_order": "asc",
+	"thread_id_field": "name",
+	"never_item_fields": []
     },
     "id_details": {
 	"id_field": "name",
