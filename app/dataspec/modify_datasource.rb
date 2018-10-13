@@ -1,6 +1,8 @@
 # Methods to add and remove fields from the datasource
 module ModifyDatasource
   include GenerateMapping
+  include RetrieveDataspec
+  include RunQuery
   
   # Add a field to a source
   def add_field_to_source(field_name, field_hash, doc_class, project_index)
@@ -40,11 +42,11 @@ module ModifyDatasource
     doc_model.remove_possible_method(field_name)
 
     # Remove field from all documents of type in elastic (does not update mapping, need to change when types removed)
-    client = Elasticsearch::Model.client
+    query_retry(0) { client = Elasticsearch::Model.client
     client.update_by_query index: project_index, type: doc_model.document_type,
                                    body: {
                                      script: { inline: 'ctx._source.remove("'+field_name+'")'},
-                                   }
+                                   }}
   end
 
   # Update the mapping in elasticsearch and the corresponding class object

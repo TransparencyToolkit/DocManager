@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   include CrudDatasource
 
   has_many :datasources
+  has_many :recipes
   
   # Load in the config file
   def parse_config(project_json)

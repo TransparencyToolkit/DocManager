@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 2018_01_01_035230) do
   enable_extension "hstore"
   enable_extension "plpgsql"
 
+  create_table "annotators", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.string "annotator_class"
+    t.string "human_readable_label"
+    t.string "icon"
+    t.text "fields_to_check", array: true
+    t.hstore "annotator_options"
+    t.index ["recipe_id"], name: "index_annotators_on_recipe_id"
+  end
+
   create_table "datasources", force: :cascade do |t|
     t.bigint "project_id"
     t.hstore "source_config"
@@ -51,6 +61,15 @@ ActiveRecord::Schema.define(version: 2018_01_01_035230) do
     t.string "logo"
     t.hstore "other_topbar_links"
     t.hstore "info_links"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.bigint "project_id"
+    t.string "title"
+    t.hstore "docs_to_process"
+    t.string "index_name"
+    t.string "doc_type"
+    t.index ["project_id"], name: "index_recipes_on_project_id"
   end
 
 end

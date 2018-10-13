@@ -1,6 +1,23 @@
 class CreateProjectsAndSources < ActiveRecord::Migration[5.1]
   def up
     enable_extension 'hstore' unless extension_enabled?('hstore')
+
+    create_table :recipes do |t|
+      t.belongs_to :project, index: true
+      t.string :title
+      t.hstore :docs_to_process
+      t.string :index_name
+      t.string :doc_type
+    end
+    
+    create_table :annotators do |t|
+      t.belongs_to :recipe, index: true
+      t.string :annotator_class
+      t.string :human_readable_label
+      t.string :icon
+      t.text :fields_to_check, array: true
+      t.hstore :annotator_options
+    end
     
     create_table :projects do |t|
       t.hstore :project_config

@@ -2,7 +2,7 @@
 class DataspecController < ApplicationController
   include RetrieveDataspec
   include ModifyDatasource
-
+  
   def add_field
     # Parse fields
     field_name = params["field_name"]

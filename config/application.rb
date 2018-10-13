@@ -34,8 +34,9 @@ module DocManager
       
       sleep(1)
       if Project.table_exists?
-        Project.delete_all
- #                    clear_all("datapolitics")
+       # Project.delete_all
+       # Recipe.delete_all
+       # clear_all("datapolitics")
         load_all_dataspecs
         sleep(1)
         create_all_indexes

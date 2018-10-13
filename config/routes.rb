@@ -21,4 +21,15 @@ Rails.application.routes.draw do
   match 'get_nil_docs' => 'query#get_nil_docs', as: :query_get_nil_docs, via: [:get, :post]
   match 'get_term_vector' => 'query#get_term_vector', as: :query_get_term_vector, via: [:get, :post]
   match 'get_child_documents' => 'query#get_child_documents', as: :query_get_child_documents, via: [:get, :post]
+
+  # Catalyst methods
+  match 'create_recipe' => 'recipe#create_recipe', as: :recipe_create_recipe, via: [:post]
+  match 'create_annotator' => 'annotator#create_annotator', as: :annotator_create_annotator, via: [:post]
+  match 'get_recipes_for_index' => 'recipe#get_recipes_for_index', as: :recipe_get_recipes_for_index, via: [:get]
+  match 'get_annotators_for_recipe' => 'annotator#get_annotators_for_recipe', as: :annotator_get_annotators_for_recipe, via: [:get]
+  match 'run_recipe' => 'recipe#run_recipe', as: :recipe_run_recipe, via: [:get]
+  match 'update_recipe' => 'recipe#update_recipe', as: :recipe_update_recipe, via: [:post]
+  match 'update_annotator' => 'annotator#update_annotator', as: :annotator_update_annotator, via: [:post]
+  match 'destroy_recipe' => 'recipe#destroy_recipe', as: :recipe_destroy_recipe, via: [:post]
+  match 'destroy_annotator' => 'annotator#destroy_annotator', as: :annotator_destroy_annotator, via: [:post]
 end
