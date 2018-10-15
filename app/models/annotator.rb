@@ -8,10 +8,10 @@ class Annotator < ApplicationRecord
                         :fields_to_check
 
   # Load in the config file
-  def parse_config(config_json, recipe_name)
+  def parse_config(config_json, recipe_id)
     source_config = JSON.parse(config_json)
     load_fields(source_config)
-    matching_recipe = Recipe.where(title: recipe_name).first
+    matching_recipe = Recipe.find(recipe_id)
     self.recipe = matching_recipe
     return self
   end

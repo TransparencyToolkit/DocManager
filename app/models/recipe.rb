@@ -4,7 +4,6 @@ class Recipe < ApplicationRecord
   
   has_many :annotators
   belongs_to :project
-  validates :title, uniqueness: true
   validates_presence_of :title,
                         :docs_to_process,
                         :index_name,

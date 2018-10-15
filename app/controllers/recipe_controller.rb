@@ -5,7 +5,7 @@ class RecipeController < ApplicationController
   
   # Run a recipe
   def run_recipe
-    recipe_to_run = Recipe.find_by(title: params["recipe_name"])
+    recipe_to_run = Recipe.find(params["recipe_id"])
 
     # ormat the recipe and docs to process
     docs_to_process = recipe_to_run.docs_to_process
@@ -29,6 +29,7 @@ class RecipeController < ApplicationController
     recipe = Recipe.new
     recipe.parse_config(params['recipe'])
     recipe.save
+    render json: recipe.id
   end
 
   # Delete a recipe given the id
