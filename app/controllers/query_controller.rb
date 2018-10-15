@@ -70,6 +70,17 @@ class QueryController < ApplicationController
     render json: query_docs("search_query_catalyst", search_query, field_to_search)
   end
 
+  # Get number of documents matching search for Catalyst
+  def run_query_catalyst_count
+    # Parse the params
+    search_query = params["search_query"]
+    field_to_search = params["field_to_search"]
+    doc_type = params["doc_type"]
+
+    # Run the search query
+    render json: query_docs("search_query_catalyst_count", search_query, field_to_search, doc_type)
+  end
+
   # Get documents within a certain range
   def run_range_query_catalyst
     # Parse the params
@@ -79,6 +90,24 @@ class QueryController < ApplicationController
 
     # Run the search query
     render json: query_docs("range_query_catalyst", field_to_search, start_range, end_range)
+  end
+
+  # Get documents within a certain range
+  def run_range_query_catalyst_count
+    # Parse the params
+    start_range = params["start_filter_range"]
+    end_range = params["end_filter_range"]
+    field_to_search = params["field_to_search"]
+    doc_type = params["doc_type"]
+    
+    # Run the search query
+    render json: query_docs("range_query_catalyst_count", field_to_search, start_range, end_range, doc_type)
+  end
+
+  # Get the total number of documents in the index
+  def get_total_doc_count_for_type
+    doc_type = params["doc_type"]
+    render json: query_docs("total_doc_count_for_type", doc_type)
   end
   
   # Get the docs with the same thread ID

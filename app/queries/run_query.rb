@@ -43,14 +43,20 @@ module RunQuery
       return search_query_display(*args)
     when "total_docs"
       return total_doc_count
+    when "total_doc_count_for_type"
+      return total_doc_count_for_type(*args)
     when "num_docs_in_collection"
       return collection_doc_total(*args)
     when "empty_field"
       return query_docs_with_empty_field(*args)
     when "search_query_catalyst"
       return search_query_catalyst(*args)
+    when "search_query_catalyst_count"
+      return search_query_catalyst_count(*args)
     when "range_query_catalyst"
       return range_query_catalyst(*args)
+    when "range_query_catalyst_count"
+      return range_query_catalyst_count(*args)
     when "term_vector_query"
       return term_vector_catalyst(*args)
     when "child_doc"
@@ -61,7 +67,8 @@ module RunQuery
   # Get the return size
   def get_return_size
     # Set return count to 1 if it should only run once for the query
-    only_run_once = ["total_docs", "num_docs_in_collection", "single_doc", "index_page", "search_query_display", "term_vector_query"]
+    only_run_once = ["total_docs", "num_docs_in_collection", "single_doc", "index_page", "search_query_display", "term_vector_query",
+                     "range_query_catalyst_count", "search_query_catalyst_count", "total_doc_count_for_type"]
     return nil if only_run_once.include?(@query_method)
 
     # Otherwise, calculate based on the total num of documents

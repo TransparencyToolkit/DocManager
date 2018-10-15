@@ -87,4 +87,10 @@ module QueryBuilder
       h
     end
   end
+
+  # Filter the models to check
+  def filter_models_to_check(doc_type)
+    type_class = "GenerateDocModel::"+@index_name.capitalize+doc_type
+    return @models.select{|m| m.to_s == type_class}
+  end
 end
