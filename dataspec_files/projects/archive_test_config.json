@@ -11,7 +11,7 @@
     }
   },
   "data_source_details": [
-      "dataspec_files/data_sources/archive_test_documents.json"
+      "dataspec_files/data_sources/archive_documents.json"
   ],
   "index_name": "archive_test"
 }

@@ -1,13 +1,13 @@
 {
     "data_source_details": {
 	"name": "Files or Folders",
-	"description": "Test document type for hosted archiving service.",
+	"description": "Document type for hosted archiving service.",
 	"icon": "icon-folder",
 	"input_params": {"directory": "string"}
     },
     "index_details": {
 	"mapping": "english",
-	"class_name": "ArchiveTestDoc"
+	"class_name": "ArchiveDoc"
     },
     "view_details": {
 	"show_tabs": ["document", "source"],
@@ -16,6 +16,7 @@
     "sort_details": {
 	"sort_field": "date_added",
 	"sort_order": "desc",
+	"thread_id_field": "rel_path",
 	"never_item_fields": []
     },
     "id_details": {
@@ -60,25 +61,25 @@
 	    "icon": "",
 	    "human_readable": "Description"
 	},
+	"notes": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Notes"
+	},
 	"date_added": {
 	    "display_type": "DateTime",
 	    "icon": "",
 	    "human_readable": "Date Added"
 	},
+	"document_date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Document Date"
+	},
 	"ocr_status": {
 	    "display_type": "Category",
-	    "icon": "",
+	    "icon": "checkmark",
 	    "human_readable": "OCR Status"
-	},
-	"catalyst_organizations": {
-	    "display_type": "Category",
-	    "icon": "industry",
-	    "human_readable": "Organizations Mentioned"
-	},
-	"catalyst_countries": {
-	    "display_type": "Category",
-	    "icon": "countries",
-	    "human_readable": "Countries Mentioned"
 	}
     }
 }
