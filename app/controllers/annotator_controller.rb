@@ -31,8 +31,8 @@ class AnnotatorController < ApplicationController
 
   # Get all the annotators matching a certain recipe
   def get_annotators_for_recipe
-    recipe_name = params["recipe_name"]
-    matching = Recipe.find_by(title: recipe_name)
+    recipe_id = params["recipe_id"]
+    matching = Recipe.find(recipe_id)
     render json: matching.annotators.to_json
   end
 end
