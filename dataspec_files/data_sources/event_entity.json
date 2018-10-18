@@ -1,0 +1,72 @@
+{
+    "data_source_details": {
+	"name": "Event",
+	"description": "Event Entity"
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "EventEntity"
+    },
+    "view_details": {
+	"show_tabs": ["document"],
+	"results_template": "default"
+    },
+    "sort_details": {
+	"sort_field": "date",
+	"sort_order": "asc",
+	"thread_id_field": "name",
+	"never_item_fields": []
+    },
+    "id_details": {
+	"id_field": "name",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "",
+	"categories_to_merge_across_versions": []
+    },
+    "fields": {
+	"name": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Name"
+	},
+	"date": {
+	    "display_type": "Date",
+	    "icon": "",
+	    "human_readable": "Date"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"notes": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Notes"
+	},
+	"city": {
+	    "display_type": "Category",
+	    "icon": "geopoint",
+	    "human_readable": "City"
+	},
+	"country": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Country"
+	},
+	"associated_people": {
+	    "display_type": "Category",
+	    "icon": "social",
+	    "human_readable": "People Involved"
+	},
+	"affiliated_companies": {
+	    "display_type": "Category",
+	    "icon": "distributed",
+	    "human_readable": "Associated Companies"
+	}
+    }
+}

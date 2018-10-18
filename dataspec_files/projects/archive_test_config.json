@@ -11,7 +11,12 @@
     }
   },
   "data_source_details": [
-      "dataspec_files/data_sources/archive_documents.json"
+      "dataspec_files/data_sources/archive_documents.json",
+      "dataspec_files/data_sources/company_entity.json",
+      "dataspec_files/data_sources/person_entity.json",
+      "dataspec_files/data_sources/location_entity.json",
+      "dataspec_files/data_sources/event_entity.json",
+      "dataspec_files/data_sources/note_entity.json"
   ],
   "index_name": "archive_test"
 }
