@@ -2,7 +2,7 @@
     "data_source_details": {
         "name": "Event",
         "description": "Event Entity",
-	    "icon": "icon-calendar-day"
+	    "icon": "icon-event"
     },
     "index_details": {
         "mapping": "english",
