@@ -86,7 +86,7 @@ module RetrieveDataspec
   # Truncate highlighted field only when needed
   def highlight_fragments(field, index_name)
     longtext = get_longtext_fields(index_name)
-    longtext.include?(field) ? (return {number_of_fragments: 0}) : (return {})
+    longtext.include?(field) ? (return {number_of_fragments: 1, fragment_size: 500}) : (return {})
   end
 
   # Gets the acet details for the project
