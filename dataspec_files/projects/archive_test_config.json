@@ -12,6 +12,7 @@
   },
   "data_source_details": [
       "dataspec_files/data_sources/archive_documents.json",
+      "dataspec_files/data_sources/email.json",
       "dataspec_files/data_sources/entity_company.json",
       "dataspec_files/data_sources/entity_person.json",
       "dataspec_files/data_sources/entity_location.json",
