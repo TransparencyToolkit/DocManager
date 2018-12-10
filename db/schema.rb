@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_01_01_035230) do
     t.string "logo"
     t.hstore "other_topbar_links"
     t.hstore "info_links"
+    t.text "front_page_documents", array: true
   end
 
   create_table "recipes", force: :cascade do |t|
