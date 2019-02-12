@@ -41,6 +41,14 @@ module LoadDataspec
     return project
   end
 
+  # Creates a project from the archive administrator
+  def create_project_from_archive_admin(archive_config)
+    project = Project.create
+    project.parse_config(archive_config)
+    project.save
+    return project
+  end
+
   # Check if project exists
   def project_exists?(path)
     project_config = JSON.parse(File.read(path))

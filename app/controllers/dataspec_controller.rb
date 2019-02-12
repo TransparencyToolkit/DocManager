@@ -2,6 +2,15 @@
 class DataspecController < ApplicationController
   include RetrieveDataspec
   include ModifyDatasource
+  include LoadDataspec
+  include IndexManager
+  
+  # Save the settings for newly created archive
+  def create_archive
+    archive_config = params["archive_config_json"]
+    project = create_project_from_archive_admin(archive_config)
+    create_index(project.index_name, project, Elasticsearch::Model.client)
+  end
   
   def add_field
     # Parse fields
