@@ -29,6 +29,7 @@ class CreateProjectsAndSources < ActiveRecord::Migration[5.1]
       t.string :logo
       t.hstore :other_topbar_links
       t.hstore :info_links
+      t.text :front_page_documents, array: true
     end
 
     create_table :datasources do |t|
