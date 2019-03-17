@@ -1,0 +1,84 @@
+{
+    "data_source_details": {
+	"name": "Files or Folders",
+	"description": "Test document type for hosted archiving service.",
+	"icon": "icon-folder",
+	"input_params": {"directory": "string"}
+    },
+    "index_details": {
+	"mapping": "english",
+	"class_name": "ArchiveTestDoc"
+    },
+    "view_details": {
+	"show_tabs": ["document", "source"],
+	"results_template": "default"	
+    },
+    "sort_details": {
+	"sort_field": "date_added",
+	"sort_order": "desc",
+	"never_item_fields": []
+    },
+    "id_details": {
+	"id_field": "rel_path",
+	"secondary_id": [],
+	"trim_from_id": []
+    },
+    "version_tracking_details": {
+	"fields_to_track": [],
+	"most_recent_timestamp": "date",
+	"categories_to_merge_across_versions": []
+    },
+    "fields": {
+	"text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"rel_path": {
+	    "display_type": "Path",
+	    "icon": "",
+	    "human_readable": "Path"
+	},
+	"title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"full_path": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "Path",
+	    "prefix": "/attachments"
+	},
+	"filetype": {
+	    "display_type": "Category",
+	    "icon": "document",
+	    "human_readable": "File Type"
+	},
+	"description": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"date_added": {
+	    "display_type": "DateTime",
+	    "icon": "",
+	    "human_readable": "Date Added"
+	},
+	"ocr_status": {
+	    "display_type": "Category",
+	    "icon": "",
+	    "human_readable": "OCR Status"
+	},
+	"catalyst_organizations": {
+	    "display_type": "Category",
+	    "icon": "industry",
+	    "human_readable": "Organizations Mentioned"
+	},
+	"catalyst_countries": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Countries Mentioned"
+	}
+    }
+}
