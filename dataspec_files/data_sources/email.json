@@ -21,7 +21,7 @@
     },
     "id_details": {
 	"id_field": "rel_path",
-	"secondary_id": ["message_id"],
+	"secondary_id": [],
 	"trim_from_id": []
     },
     "version_tracking_details": {
