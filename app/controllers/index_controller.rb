@@ -13,6 +13,6 @@ class IndexController < ApplicationController
     items = JSON.parse(params["items"])
     
     # Index the data
-    create_items(items, index_name, item_type)
+    render json: create_items(items, index_name, item_type)
   end
 end

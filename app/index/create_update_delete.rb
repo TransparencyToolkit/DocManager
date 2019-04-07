@@ -7,10 +7,15 @@ module CreateUpdateDelete
   
   # Index an array of items
   def create_items(items, index_name, item_type)
+    created_item_ids = Array.new
     doc_class = get_model(index_name, item_type)
+
+    # Add previously created items
     items.each_slice(1).each do |item_slice|
-      create_bulk_items(item_slice, index_name, doc_class, item_type)
+      created_item_ids += create_bulk_items(item_slice, index_name, doc_class, item_type)
     end
+
+    return created_item_ids
   end
 
   # Process the fields in the document before creating
@@ -46,9 +51,12 @@ module CreateUpdateDelete
 
   # Create items in bulk
   def create_bulk_items(items, index_name, doc_class, item_type)
-     # Remap the items before indexing them in bulk        
+    item_ids = Array.new
+    
+    # Remap the items before indexing them in bulk        
     remapped_items = items.map do |item|
       processed_fields = process_doc_fields(item, index_name, doc_class, item_type)
+      item_ids.push(processed_fields[:id])
        {index: {_id: processed_fields[:id], 
                 data: processed_fields}}
      end
@@ -64,5 +72,8 @@ module CreateUpdateDelete
      rescue
        binding.pry
      end
+
+     # Return a list of items created
+     return item_ids
   end
 end
