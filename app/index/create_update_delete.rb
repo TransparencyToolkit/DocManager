@@ -76,4 +76,12 @@ module CreateUpdateDelete
      # Return a list of items created
      return item_ids
   end
+
+  # Delete all the items passed in from elastic
+  def delete_items_from_elastic(items)
+    items.map{|i| {id: i["_id"], type: i["_type"], index: i["_index"]}}.each do |item|
+      Elasticsearch::Model.client.delete item
+    end
+  end
+  
 end

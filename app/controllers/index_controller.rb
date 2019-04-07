@@ -3,7 +3,6 @@ require "socket"
 # API calls for creating, updating, and deleting in the elasticsearch index
 class IndexController < ApplicationController
   include CreateUpdateDelete
-  include RemoveItems
   
   # Add new items via API call
   def add_items
@@ -14,5 +13,10 @@ class IndexController < ApplicationController
     
     # Index the data
     render json: create_items(items, index_name, item_type)
+  end
+
+  # Remove items from elastic
+  def remove_items
+    delete_items_from_elastic(JSON.parse(params["items"]))
   end
 end
