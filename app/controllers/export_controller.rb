@@ -16,25 +16,36 @@ class ExportController < ApplicationController
     # Filter dataspec and project spec
     filtered_dataspec = filter_dataspec
     filtered_projectspec = filter_projectspec
-    save_filtered(filtered_docs, filtered_dataspec, filtered_projectspec) 
+    save_filtered(filtered_docs, filtered_dataspec, filtered_projectspec)
+    sync_exported_data
   end
 
   private
+
+  # Sync the exported data
+  def sync_exported_data
+    # Sync json data and config
+    Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/json_docs/", ENV['SYNC_JSONDATA_PATH'], "-r")
+    Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/", ENV['SYNC_CONFIG_PATH'], "-r")
+
+    # Sync the attachments (preserving the path/directories- best with same path on both)
+    @attachments_to_export.each do |raw_file|
+      Rsync.run(raw_file, ENV['SYNC_RAWDOC_PATH'], "-R")
+    end
+  end
   
   # Save the filtered docs, dataspec, projectspec
   def save_filtered(docs, dataspec, project)
     # Create directories as needed
     FileUtils.mkdir_p("#{ENV['SAVE_EXPORT_PATH']}/json_docs")
-    FileUtils.mkdir_p("#{ENV['SAVE_EXPORT_PATH']}/attachments_to_export")
+    #FileUtils.mkdir_p("#{ENV['SAVE_EXPORT_PATH']}/attachments_to_export")
     FileUtils.mkdir_p("#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/projects")
     FileUtils.mkdir_p("#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/data_sources")
 
     # Save documents and list of attachments
     doc_save_path = "#{ENV['SAVE_EXPORT_PATH']}/json_docs/#{Time.now.to_s.gsub(" ", "_").gsub(":", "-")}_#{params["doc_type"]}.json"
     File.write(doc_save_path, JSON.pretty_generate(docs))
-    attachments_to_export = get_attachments_to_publish(docs, dataspec)
-    attachment_save_path = "#{ENV['SAVE_EXPORT_PATH']}/attachments_to_export/#{Time.now.to_s.gsub(" ", "_").gsub(":", "-")}_#{params["doc_type"]}_attachments.json"
-    File.write(attachment_save_path, JSON.pretty_generate(attachments_to_export))
+    @attachments_to_export = get_attachments_to_publish(docs, dataspec)
 
     # Save dataspecs and project specs
     dataspec_save_path = "#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/data_sources/#{params['doc_type'].underscore}.json"
