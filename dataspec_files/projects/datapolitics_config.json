@@ -13,9 +13,9 @@
       }
   },
     "data_source_details": [
-	"dataspec_files/data_sources/datapolitics_news.json",
-	"dataspec_files/data_sources/datapolitics_documents.json",
-	"dataspec_files/data_sources/datapolitics_companies.json",
+	"dataspec_files/data_sources/instance_specific/datapolitics_news.json",
+	"dataspec_files/data_sources/instance_specific/datapolitics_documents.json",
+	"dataspec_files/data_sources/instance_specific/datapolitics_companies.json",
 	"dataspec_files/data_sources/archive_documents.json"
     ],
     "index_name": "datapolitics"

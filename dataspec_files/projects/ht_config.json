@@ -10,7 +10,7 @@
     }
   },
   "data_source_details": [
-      "dataspec_files/data_sources/ht_documents.json"
+      "dataspec_files/data_sources/instance_specific/ht_documents.json"
   ],
   "index_name": "ht_docs"
 }

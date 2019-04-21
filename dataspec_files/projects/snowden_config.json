@@ -12,7 +12,7 @@
     }
   },
   "data_source_details": [
-      "dataspec_files/data_sources/snowden_docs.json"
+      "dataspec_files/data_sources/instance_specific/snowden_docs.json"
   ],
   "index_name": "nsadocs"
 }

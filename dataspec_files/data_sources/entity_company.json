@@ -88,6 +88,12 @@
             "display_type": "Category",
             "icon": "distributed",
             "human_readable": "Associated Companies"
-        }
+        },
+	"to_publish": {
+	    "display_type": "Category",
+	    "icon": "checkmark",
+	    "human_readable": "Publish Document?"
+	}
+	
     }
 }

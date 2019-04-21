@@ -43,6 +43,11 @@
             "display_type": "Long Text",
             "icon": "",
             "human_readable": "Notes"
-        }
+        },
+	"to_publish": {
+	    "display_type": "Category",
+	    "icon": "checkmark",
+	    "human_readable": "Publish Document?"
+	}
     }
 }

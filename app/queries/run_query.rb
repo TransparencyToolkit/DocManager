@@ -12,6 +12,7 @@ module RunQuery
   include NilQuery
   include RangeQuery
   include TermVectorQuery
+  include ExportQuery
   include ChildDocQuery
  
   def query_docs(query_method, *args)
@@ -61,6 +62,8 @@ module RunQuery
       return term_vector_catalyst(*args)
     when "child_doc"
       return find_children(*args)
+    when "docs_to_export"
+      return get_docs_to_export(*args)
     end
   end
 

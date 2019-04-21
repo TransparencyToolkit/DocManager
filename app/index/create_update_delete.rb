@@ -32,7 +32,9 @@ module CreateUpdateDelete
     # Add date and track versions
     processed_doc_data = remap_dates(index_name, item_type, doc_data).merge({id: id, thread_id: thread_id})
     processed_doc_data = remap_blank_to_nil(processed_doc_data)
-    return track_versions(processed_doc_data, doc_class, datasource).merge({id: id, thread_id: thread_id})
+    return track_versions(processed_doc_data, doc_class, datasource).merge({id: id,
+                                                                            thread_id: thread_id,
+                                                                            last_updated: Time.now})
   end
 
   # Remove fields not in the dataspec before indexing

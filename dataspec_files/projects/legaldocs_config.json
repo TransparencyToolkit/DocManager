@@ -14,7 +14,7 @@
     }
   },
   "data_source_details": [
-      "dataspec_files/data_sources/legal_documents.json"
+      "dataspec_files/data_sources/instance_specific/legal_documents.json"
   ],
   "index_name": "free_press_legal"
 }

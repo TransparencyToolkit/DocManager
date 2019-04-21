@@ -36,4 +36,7 @@ Rails.application.routes.draw do
   match 'update_annotator' => 'annotator#update_annotator', as: :annotator_update_annotator, via: [:post]
   match 'destroy_recipe' => 'recipe#destroy_recipe', as: :recipe_destroy_recipe, via: [:post]
   match 'destroy_annotator' => 'annotator#destroy_annotator', as: :annotator_destroy_annotator, via: [:post]
+
+  # Export methods
+  match 'export_to_public' => 'export#export_to_public', as: :export_export_to_public, via: [:get]
 end

@@ -10,7 +10,7 @@
     }
   },
   "data_source_details": [
-      "dataspec_files/data_sources/research_reports.json"
+      "dataspec_files/data_sources/instance_specific/research_reports.json"
   ],
   "index_name": "surveillance_research_archive"
 }

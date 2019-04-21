@@ -80,6 +80,11 @@
 	    "display_type": "Category",
 	    "icon": "checkmark",
 	    "human_readable": "OCR Status"
+	},
+	"to_publish": {
+	    "display_type": "Category",
+	    "icon": "checkmark",
+	    "human_readable": "Publish Document?"
 	}
     }
 }

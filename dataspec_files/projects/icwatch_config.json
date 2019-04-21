@@ -12,9 +12,9 @@
     }
   },
   "data_source_details": [
-      "dataspec_files/data_sources/icwatch_linkedin.json",
-      "dataspec_files/data_sources/icwatch_indeed.json",
-      "dataspec_files/data_sources/icwatch_fbidhs.json"
+      "dataspec_files/data_sources/instance_specific/icwatch_linkedin.json",
+      "dataspec_files/data_sources/instance_specific/icwatch_indeed.json",
+      "dataspec_files/data_sources/instance_specific/icwatch_fbidhs.json"
   ],
   "index_name": "icwatch"
 }
