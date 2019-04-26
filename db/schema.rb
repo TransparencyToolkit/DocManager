@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_064050) do
+ActiveRecord::Schema.define(version: 2019_04_26_145154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -37,13 +37,23 @@ ActiveRecord::Schema.define(version: 2019_02_25_064050) do
     t.string "logo"
     t.string "favicon"
     t.string "theme"
+    t.string "archive_gateway_ip"
+    t.string "archive_vm_ip"
     t.string "lookingglass_instance"
     t.string "uploadform_instance"
     t.string "docmanager_instance"
     t.string "catalyst_instance"
     t.string "ocr_in_path"
     t.string "ocr_out_path"
+    t.string "save_export_path"
+    t.string "sync_jsondata_path"
+    t.string "sync_rawdoc_path"
+    t.string "sync_config_path"
     t.string "archive_key"
+    t.datetime "last_access_date"
+    t.string "public_archive_subdomain"
+    t.string "public_archive_path"
+    t.datetime "last_export_date"
     t.text "admin_users", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,6 +64,16 @@ ActiveRecord::Schema.define(version: 2019_02_25_064050) do
     t.bigint "archive_id", null: false
     t.index ["archive_id", "user_id"], name: "index_archives_users_on_archive_id_and_user_id"
     t.index ["user_id", "archive_id"], name: "index_archives_users_on_user_id_and_archive_id"
+  end
+
+  create_table "crono_jobs", force: :cascade do |t|
+    t.string "job_id", null: false
+    t.text "log"
+    t.datetime "last_performed_at"
+    t.boolean "healthy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
   end
 
   create_table "datasources", force: :cascade do |t|

@@ -11,6 +11,14 @@ class DataspecController < ApplicationController
     project = create_project_from_archive_admin(archive_config)
     create_index(project.index_name, project, Elasticsearch::Model.client)
   end
+
+  # Update the archive settings
+  def update_archive
+    archive_config = params["archive_config_json"]
+    project_index = params["index_name"]
+    found_project = Project.where(index_name: project_index).first
+    update_project_from_archive_admin(archive_config, found_project)
+  end
   
   def add_field
     # Parse fields

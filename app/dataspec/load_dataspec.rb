@@ -41,6 +41,13 @@ module LoadDataspec
     return project
   end
 
+  # Update a project from archive administrator
+  def update_project_from_archive_admin(archive_config, found_project)
+    updated_project = found_project.parse_config(archive_config)
+    updated_project.save
+    return updated_project
+  end
+  
   # Creates a project from the archive administrator
   def create_project_from_archive_admin(archive_config)
     project = Project.create

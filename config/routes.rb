@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   match 'get_dataspec_for_doc' => 'dataspec#get_dataspec_for_doc', as: :dataspec_get_dataspec_for_doc, via: [:get, :post]
   match 'get_project_spec' => 'dataspec#get_project_spec', as: :dataspec_get_project_spec, via: [:get, :post]
   match 'create_archive' => 'dataspec#create_archive', as: :dataspec_create_archive, via: [:post]
+  match 'update_archive' => 'dataspec#update_archive', as: :dataspec_update_archive, via: [:post]
   match 'add_field' => 'dataspec#add_field', as: :dataspec_add_field, via: [:post]
   match 'remove_field' => 'dataspec#remove_field', as: :dataspec_remove_field, via: [:post]
   match 'get_facet_details_for_project' => 'dataspec#get_facet_details_for_project', as: :dataspec_get_facet_details_for_project, via: [:get, :post]
