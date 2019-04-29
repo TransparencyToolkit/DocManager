@@ -85,6 +85,11 @@
 	    "display_type": "Category",
 	    "icon": "checkmark",
 	    "human_readable": "Publish Document?"
+	},
+	"folders": {
+	    "display_type": "Category",
+	    "icon": "folder",
+	    "human_readable": "Folders"
 	}
     }
 }
