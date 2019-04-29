@@ -8,7 +8,14 @@ module RetrieveDataspec
  #   datasource = project.datasources.where(class_name: doc_type)
     datasource = project.datasources.where(class_name: doc_type).first
     classname = GenerateDocModel.gen_classname(datasource)
-    return Kernel.const_get("GenerateDocModel::#{classname}")
+
+    # Create class if it doesn't exist
+    begin
+      return Kernel.const_get("GenerateDocModel::#{classname}")
+    rescue
+      GenerateDocModel.gen_doc_class(datasource)
+      return Kernel.const_get("GenerateDocModel::#{classname}")
+    end
   end
 
   # Get all the models for the project
