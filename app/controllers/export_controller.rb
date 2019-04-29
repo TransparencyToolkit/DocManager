@@ -24,13 +24,18 @@ class ExportController < ApplicationController
 
   # Sync the exported data
   def sync_exported_data
-    # Sync json data and config
-    Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/json_docs/", ENV['SYNC_JSONDATA_PATH'], "-r")
-    Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/", ENV['SYNC_CONFIG_PATH'], "-r")
-
-    # Sync the attachments (preserving the path/directories- best with same path on both)
-    @attachments_to_export.each do |raw_file|
-      Rsync.run(raw_file, ENV['SYNC_RAWDOC_PATH'], "-R")
+    begin
+      # Sync json data and config
+      Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/json_docs/", ENV['SYNC_JSONDATA_PATH'], "-r")
+      Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/", ENV['SYNC_CONFIG_PATH'], "-r")
+      
+      # Sync the attachments (preserving the path/directories- best with same path on both)
+      @attachments_to_export.each do |raw_file|
+        Rsync.run(raw_file, ENV['SYNC_RAWDOC_PATH'], "-R")
+      end
+    rescue # Retry if it rails to sync
+      sleep(5)
+      sync_exported_data
     end
   end
   
