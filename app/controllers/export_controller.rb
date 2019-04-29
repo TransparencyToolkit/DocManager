@@ -26,12 +26,12 @@ class ExportController < ApplicationController
   def sync_exported_data
     begin
       # Sync json data and config
-      Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/json_docs/", ENV['SYNC_JSONDATA_PATH'], "-r")
-      Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/", ENV['SYNC_CONFIG_PATH'], "-r")
+      Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/json_docs/", ENV['SYNC_JSONDATA_PATH'], "-r -e 'ssh -i /tt-config/id_ed25519'")
+      Rsync.run("#{ENV['SAVE_EXPORT_PATH']}/dataspec_files/", ENV['SYNC_CONFIG_PATH'], "-r e 'ssh -i /tt-config/id_ed25519'")
       
       # Sync the attachments (preserving the path/directories- best with same path on both)
       @attachments_to_export.each do |raw_file|
-        Rsync.run(raw_file, ENV['SYNC_RAWDOC_PATH'], "-R")
+        Rsync.run(raw_file, ENV['SYNC_RAWDOC_PATH'], "-R e 'ssh -i /tt-config/id_ed25519'")
       end
     rescue # Retry if it rails to sync
       sleep(5)
