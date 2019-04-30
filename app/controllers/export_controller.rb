@@ -9,8 +9,7 @@ class ExportController < ApplicationController
     set_instance_vars
 
     # Get documents to export
-    docs = query_docs("docs_to_export", params["date_changed_since"], params["pub_selector_field"],
-                      JSON.parse(params["acceptable_to_publish_values"]), params["doc_type"])
+    docs = query_docs("docs_to_export", Date.parse(params["date_changed_since"]), params["pub_selector_field"], JSON.parse(params["acceptable_to_publish_values"]), params["doc_type"])
     filtered_docs = filter_documents(docs)
 
     # Filter dataspec and project spec
