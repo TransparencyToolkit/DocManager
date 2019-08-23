@@ -122,6 +122,11 @@
 	    "display_type": "Short Text",
 	    "icon": "",
 	    "human_readable": "Precedents Cited"
+	},
+	"to_publish": {
+	    "display_type": "Category",
+	    "icon": "checkmark",
+	    "human_readable": "Publish Document?"
 	}
     }
 }
