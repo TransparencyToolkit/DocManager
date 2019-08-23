@@ -1,25 +1,25 @@
 {
     "data_source_details": {
-		"name": "Legal Documents",
-		"description": "Loads in legal docs",
-		"icon": "icon-folder"
+	"name": "Legal Documents",
+	"description": "Loads in legal docs",
+	"icon": "icon-folder"
     },
     "index_details": {
-		"mapping": "english",
-		"class_name": "LegalDocs"
+	"mapping": "english",
+	"class_name": "LegalDocs"
     },
     "view_details": {
-	"show_tabs": ["text", "document", "link"],
-		"results_template": "default"	
+	"show_tabs": ["source", "document", "link"],
+	"results_template": "default"	
     },
     "sort_details": {
-		"sort_field": "doc_date",
-		"sort_order": "desc"
+	"sort_field": "doc_date",
+	"sort_order": "desc"
     },
     "id_details": {
-		"id_field": "path",
-		"secondary_id": [],
-		"trim_from_id": []
+	"id_field": "rel_path",
+	"secondary_id": [],
+	"trim_from_id": []
     },
     "version_tracking_details": {
 	"fields_to_track": [],
@@ -27,101 +27,101 @@
 	"categories_to_merge_across_versions": []
     },
     "fields": {
-		"text": {
-			"display_type": "Long Text",
-			"icon": "",
-			"human_readable": "Text"
-		},
-		"attachment": {
-			"display_type": "Attachment",
-			"icon": "",
-			"human_readable": "Path",
-			"prefix": "https://couragefound.org/legal_docs/"
-		},
-	     "path": {
-	         "display_type": "None",
-		 "icon": "",
-		 "human_readable": "Path"
-	     },
-	       "link": {
-		   "display_type": "Link",
-		   "icon": "",
-		   "human_readable": "Link"
-	       },
-		"title": {
-			"display_type": "Title",
-			"icon": "",
-			"human_readable": "Title"
-		},
-		"doc_type": {
-			"display_type": "Category",
-			"icon": "document-topic",
-			"human_readable": "Document Type"
-		},
-	    "doc_category": {
-	        "display_type": "Category",
-	        "icon": "document",
-	        "human_readable": "Document Category"
-	    },
-		"people": {
-			"display_type": "Category",
-			"icon": "social",
-			"human_readable": "People"
-		},
-		"organizations": {
-			"display_type": "Category",
-			"icon": "progress",
-			"human_readable": "Organizations"
-		},
-		"case": {
-			"display_type": "Category",
-			"icon": "briefcase",
-			"human_readable": "Case"
-		},
-		"court": {
-			"display_type": "Category",
-			"icon": "agencies",
-			"human_readable": "Originating Organization"
-		},
-		"jurisdiction": {
-			"display_type": "Category",
-			"icon": "map",
-			"human_readable": "Jurisdiction"
-		},
-	        "country": {
-	            "display_type": "Category",
-	            "icon": "countries",
-	            "human_readable": "Country"
-		},
-		"release_date": {
-			"display_type": "Date",
-			"icon": "calendar",
-			"human_readable": "Release Date"
-		},
-		"doc_date": {
-			"display_type": "Date",
-			"icon": "calendar",
-			"human_readable": "Document Date"
-		},
-		"classification": {
-			"display_type": "Category",
-			"icon": "tag",
-			"human_readable": "Classification"
-		},
-		"description": {
-			"display_type": "Description",
-			"icon": "",
-			"human_readable": "Description"
-		},
-		"laws_and_regs": {
-			"display_type": "Category",
-			"icon": "research",
-			"human_readable": "Laws and Regulations Cited"
-		},
-		"precedents": {
-			"display_type": "Short Text",
-			"icon": "",
-			"human_readable": "Precedents Cited"
-		}
+	"text": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Text"
+	},
+	"full_path": {
+	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "Path",
+	    "prefix": "/attachments"
+	},
+	"rel_path": {
+	    "display_type": "Path",
+	    "icon": "",
+	    "human_readable": "Path"
+	},
+	"url": {
+	    "display_type": "Link",
+	    "icon": "",
+	    "human_readable": "Link"
+	},
+	"title": {
+	    "display_type": "Title",
+	    "icon": "",
+	    "human_readable": "Title"
+	},
+	"doc_type": {
+	    "display_type": "Category",
+	    "icon": "document-topic",
+	    "human_readable": "Document Type"
+	},
+	"doc_category": {
+	    "display_type": "Category",
+	    "icon": "document",
+	    "human_readable": "Document Category"
+	},
+	"people": {
+	    "display_type": "Category",
+	    "icon": "social",
+	    "human_readable": "People"
+	},
+	"organizations": {
+	    "display_type": "Category",
+	    "icon": "progress",
+	    "human_readable": "Organizations"
+	},
+	"case": {
+	    "display_type": "Category",
+	    "icon": "briefcase",
+	    "human_readable": "Case"
+	},
+	"court": {
+	    "display_type": "Category",
+	    "icon": "agencies",
+	    "human_readable": "Originating Organization"
+	},
+	"jurisdiction": {
+	    "display_type": "Category",
+	    "icon": "map",
+	    "human_readable": "Jurisdiction"
+	},
+	"country": {
+	    "display_type": "Category",
+	    "icon": "countries",
+	    "human_readable": "Country"
+	},
+	"release_date": {
+	    "display_type": "Date",
+	    "icon": "calendar",
+	    "human_readable": "Release Date"
+	},
+	"doc_date": {
+	    "display_type": "Date",
+	    "icon": "calendar",
+	    "human_readable": "Document Date"
+	},
+	"classification": {
+	    "display_type": "Category",
+	    "icon": "tag",
+	    "human_readable": "Classification"
+	},
+	"description": {
+	    "display_type": "Description",
+	    "icon": "",
+	    "human_readable": "Description"
+	},
+	"laws_and_regs": {
+	    "display_type": "Category",
+	    "icon": "research",
+	    "human_readable": "Laws and Regulations Cited"
+	},
+	"precedents": {
+	    "display_type": "Short Text",
+	    "icon": "",
+	    "human_readable": "Precedents Cited"
+	}
     }
 }
