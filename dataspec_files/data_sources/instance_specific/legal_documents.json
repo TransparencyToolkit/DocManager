@@ -119,6 +119,16 @@
 	    "display_type": "Category",
 	    "icon": "checkmark",
 	    "human_readable": "Publish Document?"
+	},
+	"notes": {
+	    "display_type": "Long Text",
+	    "icon": "",
+	    "human_readable": "Notes"
+	},
+	"tags": {
+	    "display_type": "Category",
+	    "icon": "tag",
+	    "human_readable": "Tags"
 	}
     }
 }
