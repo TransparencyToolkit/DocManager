@@ -14,7 +14,9 @@
     },
     "sort_details": {
 	"sort_field": "doc_date",
-	"sort_order": "desc"
+	"sort_order": "desc",
+	"thread_id_field": "rel_path",
+	"never_item_fields": []
     },
     "id_details": {
 	"id_field": "rel_path",
@@ -62,16 +64,6 @@
 	    "display_type": "Category",
 	    "icon": "document",
 	    "human_readable": "Document Category"
-	},
-	"people": {
-	    "display_type": "Category",
-	    "icon": "social",
-	    "human_readable": "People"
-	},
-	"organizations": {
-	    "display_type": "Category",
-	    "icon": "progress",
-	    "human_readable": "Organizations"
 	},
 	"case": {
 	    "display_type": "Category",
