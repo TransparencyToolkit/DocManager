@@ -16,11 +16,11 @@
     "sort_details": {
 	"sort_field": "date",
 	"sort_order": "desc",
-	"thread_id_field": "rel_path",
+	"thread_id_field": "file_hash",
 	"never_item_fields": []
     },
     "id_details": {
-	"id_field": "rel_path",
+	"id_field": "file_hash",
 	"secondary_id": [],
 	"trim_from_id": []
     },
@@ -30,6 +30,11 @@
 	"categories_to_merge_across_versions": []
     },
     "fields": {
+	"file_hash": {
+	    "display_type": "Hidden",
+	    "icon": "",
+	    "human_readable": "File Hash"
+	},
 	"body": {
 	    "display_type": "Long Text",
 	    "icon": "",
