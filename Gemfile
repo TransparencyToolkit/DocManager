@@ -10,6 +10,7 @@ gem 'rails', '~> 5.2.0'
 gem 'puma'
 gem 'pg', '~> 0.20'
 gem 'bootsnap'
+gem 'sprockets', '~>3.0'
 
 group :development, :test do
   gem 'pry-byebug'

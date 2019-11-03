@@ -10,7 +10,7 @@
 	"class_name": "ArchiveDoc"
     },
     "view_details": {
-	"show_tabs": ["document", "source"],
+	"show_tabs": ["source", "text"],
 	"results_template": "default"	
     },
     "sort_details": {
@@ -47,6 +47,12 @@
 	},
 	"full_path": {
 	    "display_type": "Attachment",
+	    "icon": "",
+	    "human_readable": "Path",
+	    "prefix": "/attachments"
+	},
+	"lg_pdf_view": {
+	    "display_type": "Alt Attachment View",
 	    "icon": "",
 	    "human_readable": "Path",
 	    "prefix": "/attachments"
