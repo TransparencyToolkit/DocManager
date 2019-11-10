@@ -8,7 +8,7 @@ module DateParser
     # Parse/remap date fields
     doc_data.each do |key, value|
       if is_date_field?(datasource, key)
-        doc_data[key] = parse_date(value)
+        doc_data[key] = parse_date(value, datasource, key)
       else
         doc_data[key] = value
       end
@@ -22,11 +22,21 @@ module DateParser
   end
 
   # Parse the date field and handle messy date names
-  def parse_date(date)
+  def parse_date(date, datasource, field_name)
+    # Get type to differentiate dates and datetimes
+    display_type = datasource["source_fields"][field_name]["display_type"] if datasource["source_fields"][field_name]
+    
+    # Handle common errors/issues
     date = handle_unknown_present_date(date)
     date = translate_dates(date) if (!date.is_a?(Date) && date)
     date = handle_year_dates(date.to_s.strip.lstrip) if date.to_s.strip.lstrip.length == 4
-    (date && !date.is_a?(Date)) ? (return Date.parse(date)) : (return date)
+
+    # Return final parsed date or datetime
+    if display_type == "Date"
+      (date && !date.is_a?(Date)) ? (return Date.parse(date)) : (return date)
+    elsif display_type == "DateTime"
+      (date && !date.is_a?(DateTime)) ? (return DateTime.parse(date)) : (return date)
+    end
   end
 
   # Handle dates that are years
